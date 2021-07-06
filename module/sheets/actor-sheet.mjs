@@ -123,6 +123,12 @@ export class hqActorSheet extends ActorSheet {
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
+      ChatMessage.create({
+        content: `
+          <h3>Interrupt!</h3>
+          <p>${this.actor.name} uses ${item.name}</p>
+        `
+      })
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
