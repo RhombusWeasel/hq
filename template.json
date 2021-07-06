@@ -22,7 +22,12 @@
     "character": {
       "templates": ["base"],
       "attributes": {
-        
+        "attack": {
+          "value": 1
+        },
+        "defence": {
+          "value": 1
+        }
       }
     },
     "npc": {
