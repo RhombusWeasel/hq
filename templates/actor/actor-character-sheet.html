@@ -47,8 +47,8 @@
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">Features</a>
     <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="effects">Effects</a>
+    <!-- <a class="item" data-tab="items">Items</a> -->
+    <!-- <a class="item" data-tab="effects">Effects</a> -->
   </nav>
 
   {{!-- Sheet Body --}}
@@ -74,7 +74,7 @@
         {{!-- For the main features list, span the right two columns --}}
         <section class="main grid-span-2">
           {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-          {{> "systems/hq/templates/actor/parts/actor-features.html"}}
+          {{> "systems/hq/templates/actor/parts/actor-items.html"}}
         </section>
 
       </section>
@@ -86,15 +86,15 @@
       {{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
-    {{!-- Owned Items Tab --}}
+    <!-- {{!-- Owned Items Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">
        {{> "systems/hq/templates/actor/parts/actor-items.html"}}
-    </div>
+    </div> -->
 
-    {{!-- Active Effects Tab --}}
+    <!-- {{!-- Active Effects Tab --}}
     <div class="tab effects flexcol" data-group="primary" data-tab="effects">
       {{> "systems/hq/templates/actor/parts/actor-effects.html"}}
-    </div>
+    </div> -->
 
   </section>
 </form>
