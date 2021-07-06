@@ -6,12 +6,7 @@
         "move": {
           "value": 2
         },
-        "body": {
-          "min": 0,
-          "max": 1,
-          "value": 1
-        },
-        "mind": {
+        "Health": {
           "min": 0,
           "max": 1,
           "value": 1
@@ -22,12 +17,10 @@
     "character": {
       "templates": ["base"],
       "attributes": {
-        "attack": {
-          "value": 1
-        },
-        "defence": {
-          "value": 1
-        }
+        "body": 1,
+        "mind": 1,
+        "attack": 1,
+        "defence":1
       }
     },
     "npc": {
@@ -48,7 +41,7 @@
       "weight": 0,
       "formula": "d20 + @str.mod + ceil(@lvl / 2)"
     },
-    "feature": {
+    "spell": {
       "templates": ["base"],
       "formula": "@attack.value"
     }
