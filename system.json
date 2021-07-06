@@ -2,7 +2,7 @@
   "name": "hq",
   "title": "Hero Quest",
   "description": "The Hero Quest system for FoundryVTT!",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "minimumCoreVersion": "0.8.5",
   "compatibleCoreVersion": "0.8.6",
   "author": "RhombusWeasel",
@@ -23,6 +23,6 @@
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/RhombusWeasel/hq/",
   "manifest": "https://raw.githubusercontent.com/RhombusWeasel/hq/master/system.json",
-  "download": "https://github.com/RhombusWeasel/hq/releases/download/0.0.1/hq.zip",
+  "download": "https://github.com/RhombusWeasel/hq/releases/download/0.0.2/hq.zip",
   "license": "LICENSE.txt"
 }
