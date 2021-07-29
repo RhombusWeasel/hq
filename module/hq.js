@@ -1,5 +1,5 @@
-import item_sheet from "./module/sheets/item.js";
-import actor_sheet from "./module/sheets/actor.js"
+import item_sheet from "./sheets/item.js";
+import actor_sheet from "./sheets/actor.js"
 
 async function preload_handlebars_templates() {
     const template_paths = []
