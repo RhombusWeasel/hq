@@ -1,4 +1,4 @@
-export class hqActorSheet extends ActorSheet {
+export default class hqActorSheet extends ActorSheet {
 
     /** @override */
     static get defaultOptions() {
