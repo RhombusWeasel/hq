@@ -3,12 +3,12 @@
   "title": "Hero Quest",
   "description": "The Hero Quest system for FoundryVTT!",
   "version": "0.0.3",
-  "minimumCoreVersion": "0.8.5",
-  "compatibleCoreVersion": "0.8.6",
+  "minimumCoreVersion": "0.8.8",
+  "compatibleCoreVersion": "0.8.8",
   "author": "RhombusWeasel",
-  "esmodules": ["module/hq.mjs"],
+  "esmodules": ["module/hq.js"],
   "styles": ["css/hq.css"],
-  "scripts": [],
+  "scripts": ["lib/lib.js"],
   "packs": [],
   "languages": [
     {

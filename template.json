@@ -1,49 +1,39 @@
 {
-  "Actor": {
-    "types": ["character", "npc"],
-    "templates": {
-      "base": {
-        "move": {
-          "value": 2
+    "Actor": {
+        "types": [
+            "hero",
+            "monster"
+        ],
+        "templates": {
+            "core": {
+                "move": "2d6",
+                "atk": 2,
+                "def": 2,
+                "mind": 2,
+                "body": {
+                    "min": 0,
+                    "max": 4,
+                    "value": 4
+                }
+            }
         },
-        "Health": {
-          "min": 0,
-          "max": 1,
-          "value": 1
+        "hero": {
+            "templates": ["core"]
         },
-        "biography": ""
-      }
+        "monster": {
+            "templates": ["core"]
+        }
     },
-    "character": {
-      "templates": ["base"],
-      "attributes": {
-        "body": 1,
-        "mind": 1,
-        "attack": 1,
-        "defence":1
-      }
-    },
-    "npc": {
-      "templates": ["base"],
-      "cr": 0
+    "Item": {
+        "types": [
+            "consumable",
+            "gear",
+            "spell"
+        ],
+        "templates": {
+            "core": {
+                "description": ""
+            }
+        }
     }
-  },
-  "Item": {
-    "types": ["item", "feature"],
-    "templates": {
-      "base": {
-        "description": ""
-      }
-    },
-    "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
-    },
-    "spell": {
-      "templates": ["base"],
-      "formula": "@attack.value"
-    }
-  }
 }
