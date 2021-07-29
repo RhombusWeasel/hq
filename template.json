@@ -6,6 +6,7 @@
         ],
         "templates": {
             "core": {
+                "class": false,
                 "move": "2d6",
                 "atk": 2,
                 "def": 2,
@@ -18,7 +19,13 @@
             }
         },
         "hero": {
-            "templates": ["core"]
+            "templates": ["core"],
+            "armour": {
+                "shield": false,
+                "chest": false,
+                "helmet": false
+            },
+            "weapon": false
         },
         "monster": {
             "templates": ["core"]

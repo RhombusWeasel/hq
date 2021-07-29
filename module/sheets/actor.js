@@ -19,6 +19,7 @@ export class hqActorSheet extends ActorSheet {
     /** @override */
     getData() {
     const data = super.getData();
+    data.stats = this.actor.data.data
     return data;
     }
 }  
