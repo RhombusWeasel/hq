@@ -1,4 +1,4 @@
-import item_sheet from "./sheets/item.js";
+import item_sheet from "./module/sheets/item.js";
 import actor_sheet from "./module/sheets/actor.js"
 
 async function preload_handlebars_templates() {
