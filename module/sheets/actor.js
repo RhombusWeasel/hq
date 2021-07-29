@@ -3,7 +3,7 @@ export class hqActorSheet extends ActorSheet {
     /** @override */
     static get defaultOptions() {
       return mergeObject(super.defaultOptions, {
-        classes: ["hq", "sheet", "actor"],
+        classes: ["hq"],
         template: `systems/hq/templates/actor/actor-${this.actor.data.type}-sheet.html`,
         width: 600,
         height: 600,
