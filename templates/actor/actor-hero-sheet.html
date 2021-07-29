@@ -2,8 +2,26 @@
     <div class="form">
         <div class="border">
             <h1 class="center">
-                <div data-edit="name" contenteditable="">{{actor.name}}</div>
+                <div class="center" data-edit="name" contenteditable="">{{actor.name}}</div>
             </h1>
+        </div>
+        <div class="flexbox">
+            <div>
+                <h2>Stats</h2>
+                <table>
+                    <tr>
+                        <th>Move</th>
+                        <td>2d6</td>
+                    </tr>
+                    <tr>
+                        <th>Body</th>
+                        <td>
+                            <input type="number" name="data.body.value">{{stats.body.value}}</input>/
+                            <input type="number" name="data.body.max">{{stats.body.value}}</input>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </form>
