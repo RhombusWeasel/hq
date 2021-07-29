@@ -4,10 +4,13 @@
             <h1 class="center">
                 <div class="center" data-edit="name" contenteditable="">{{actor.name}}</div>
             </h1>
+            <h1 class="center">
+                <div class="center" data-edit="name" contenteditable="">{{data.data.class}}</div>
+            </h1>
         </div>
         <div class="flexbox">
             <div>
-                <h2>Stats</h2>
+                <h2 class="center">Stats</h2>
                 <table class="center" style="table-layout: fixed;">
                     <tr class="center">
                         <th>Move</th>
@@ -40,6 +43,23 @@
                     </tr>
                 </table>
             </div>
+        </div>
+        <div>
+            <h2 class="center">Gear</h2>
+            <table>
+                <tr>
+                    <th>Helmet</th>
+                    <td>{{data.data.armour.helmet}}</td>
+                </tr>
+                <tr>
+                    <th>Armour</th>
+                    <td>{{data.data.armour.body}}</td>
+                </tr>
+                <tr>
+                    <th>Shield</th>
+                    <td>{{data.data.armour.shield}}</td>
+                </tr>
+            </table>
         </div>
     </div>
 </form>

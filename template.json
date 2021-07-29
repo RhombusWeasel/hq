@@ -20,6 +20,7 @@
         },
         "hero": {
             "templates": ["core"],
+            "class": false,
             "armour": {
                 "shield": false,
                 "chest": false,
