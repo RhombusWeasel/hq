@@ -4,9 +4,6 @@ export default class hqActorSheet extends ActorSheet {
     static get defaultOptions() {
       return mergeObject(super.defaultOptions, {
         classes: ["hq"],
-        template: `systems/hq/templates/actor/actor-${this.actor.data.type}-sheet.html`,
-        width: 600,
-        height: 600,
         tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
       });
     }
