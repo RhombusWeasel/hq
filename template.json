@@ -28,7 +28,7 @@
                 "spells": {
                     "genie": {
                         "name": "Genie",
-                        "description":"This spell conjoures up a Genie who will do one of the following:  Open any door on the Board OR attack anyone on the board once with five combat dice.",
+                        "description":"This spell conjoures up a Genie who will do one of the following:</br>Open any door on the Board</br>OR</br>Attack anyone on the board once with five combat dice.",
                         "element": "Air",
                         "cast": false
                     },
