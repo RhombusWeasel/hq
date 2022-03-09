@@ -6,10 +6,13 @@
             </h1>
             <h1 class="center">
                 <select name="data.class">
-                    <option value="barbarian">Barbarian</option>
-                    <option value="dwarf">Dwarf</option>
-                    <option value="elf">Elf</option>
-                    <option value="wizard">Wizard</option>
+                    {{#each heros as |hero|}}
+                        {{#if (eq data.data.class @index)}}
+                    <option value="{{@index}}" selected>{{hero.name}}</option>
+                        {{else}}
+                    <option value="{{@index}}">{{hero.name}}</option>
+                        {{/if}}
+                    {{/each}}
                 </select>
             </h1>
         </div>
