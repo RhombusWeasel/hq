@@ -40,7 +40,7 @@
                     },
                     "tempest": {
                         "name": "Tempest",
-                        "description":"A small tempestis created which envelops one monster or player of your choice, that monster or player must miss their next turn.",
+                        "description":"A small tempest is created which envelops one monster or player of your choice, that monster or player must miss their next turn.",
                         "element": "Air",
                         "cast": false
                     },
