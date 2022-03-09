@@ -22,7 +22,32 @@
                 "atk_count": 1,
                 "spell_slots": 0,
                 "spells": [],
-                "potions": []
+                "potions": {
+                    "healing": {
+                        "name": "Potion of Healing",
+                        "amount": 0
+                    },
+                    "holy_water": {
+                        "name": "Holy Water",
+                        "amount": 0
+                    },
+                    "heroic": {
+                        "name": "Heroic Brew",
+                        "amount": 0
+                    },
+                    "resilience": {
+                        "name": "Potion of Resilience",
+                        "amount": 0
+                    },
+                    "speed": {
+                        "name": "Potion of Speed",
+                        "amount": 0
+                    },
+                    "strength": {
+                        "name": "Potion of Strength",
+                        "amount": 0
+                    }
+                }
             }
         },
         "hero": {

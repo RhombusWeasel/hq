@@ -18,7 +18,8 @@
                     <a class="center set-class">Select Class</a>
                 </h1>
             {{else}}
-                <h1 class="center">{{data.data.class_name}}</h1>
+                <h2 class="center">{{data.data.class_name}}</h2>
+                <h2 class="center">Gold: {{data.data.gold}}</h2>
             {{/if}}
         </div>
         <div class="flexrow">
@@ -66,6 +67,25 @@
                         <th>Weapon</th>
                         <td>{{data.data.weapon}}</td>
                     </tr>
+                </table>
+            </div>
+        </div>
+        <div class="flexrow">
+            <div>
+                <h2>Potions</h2>
+                <table>
+                    <tr class="center">
+                        <th class="perc80">Potion</th>
+                        <th class="perc10">Amt</th>
+                        <th class="perc10">Use</th>
+                    </tr>
+                    {{#each data.data.potions as |potion|}}
+                    <tr class="center" title="{{potion.description}}">
+                        <td>potion.name</td>
+                        <td>potion.amount</td>
+                        <td><a><i class="fas fa-flask-round-potion"></i></a></td>
+                    </tr>
+                    {{/each}}
                 </table>
             </div>
         </div>
