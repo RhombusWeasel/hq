@@ -7,6 +7,7 @@
         "templates": {
             "core": {
                 "class": false,
+                "class_name": "Barbarian",
                 "gold": 0,
                 "move": 2,
                 "atk": 2,
@@ -18,13 +19,13 @@
                     "value": 4
                 },
                 "atk_count": 1,
+                "spell_slots": 0,
                 "spells": [],
                 "potions": []
             }
         },
         "hero": {
             "templates": ["core"],
-            "class": "barbarian",
             "shield": false,
             "armour": false,
             "helmet": false,
