@@ -16,6 +16,7 @@ export default class hqActorSheet extends ActorSheet {
     /** @override */
     getData() {
     const data = super.getData();
+    data.heros = hq.classes;
     return data;
     }
 }  
