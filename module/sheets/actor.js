@@ -19,4 +19,16 @@ export default class hqActorSheet extends ActorSheet {
     data.heros = hq.classes;
     return data;
     }
+
+    activateListeners(html) {
+      html.find(".class-select").change(this._on_class_select.bind(this));
+    }
+
+    _on_class_select(ev) {
+      ev.preventDefault();
+      let el = ev.currentTarget;
+      let v = parseInt(el.value);
+      let st = hq.classes[v];
+      this.actor.update("data.class", v);
+    }
 }  

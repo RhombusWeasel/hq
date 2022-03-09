@@ -5,7 +5,7 @@
                 <div class="center" data-edit="name" contenteditable="">{{actor.name}}</div>
             </h1>
             <h1 class="center">
-                <select name="data.class">
+                <select name="data.class" class="class-select">
                     {{#each heros as |hero|}}
                         {{#if (eq data.data.class @index)}}
                     <option value="{{@index}}" selected>{{hero.name}}</option>
