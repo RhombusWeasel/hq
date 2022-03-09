@@ -7,7 +7,7 @@
             <h1 class="center">
                 <select name="data.class" class="class-select">
                     {{#each heros as |hero|}}
-                        {{#if (eq data.data.class @index)}}
+                        {{#if (eq ../data.data.class @index)}}
                     <option value="{{@index}}" selected>{{hero.name}}</option>
                         {{else}}
                     <option value="{{@index}}">{{hero.name}}</option>
