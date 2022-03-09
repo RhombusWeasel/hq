@@ -21,7 +21,84 @@
                 },
                 "atk_count": 1,
                 "spell_slots": 0,
-                "spells": [],
+                "air": false,
+                "earth": false,
+                "fire": false,
+                "water": false,
+                "spells": {
+                    "genie": {
+                        "name": "Genie",
+                        "description":"This spell conjoures up a Genie who will do one of the following:  Open any door on the Board OR attack anyone on the board once with five combat dice.",
+                        "element": "Air",
+                        "cast": false
+                    },
+                    "swift_wind": {
+                        "name": "Swift Wind",
+                        "description":"This spell may be cast on any one player, that player may roll twice as many dice as normal the next time they move.",
+                        "element": "Air",
+                        "cast": false
+                    },
+                    "tempest": {
+                        "name": "Tempest",
+                        "description":"A small tempestis created which envelops one monster or player of your choice, that monster or player must miss their next turn.",
+                        "element": "Air",
+                        "cast": false
+                    },
+                    "heal_body": {
+                        "name": "Heal Body",
+                        "description":"This spell may be cast on any one player.  It will restore up to four lost body points that have been lost.",
+                        "element": "Earth",
+                        "cast": false
+                    },
+                    "pass_through_rock": {
+                        "name": "Pass Through Rock",
+                        "description":"This spell may be cast on any one player. That player may then move through walls when they next move, the player may walk through as many walls as their movement will allow.",
+                        "element": "Earth",
+                        "cast": false
+                    },
+                    "rock_skin": {
+                        "name": "Rock Skin",
+                        "description":"This spell may be cast on any one player. That player may roll two extra defence dice until the spell is broken.  The spell is broken when that player is wounded.",
+                        "element": "Earth",
+                        "cast": false
+                    },
+                    "ball_of_flame": {
+                        "name": "Ball of Flame",
+                        "description":"This spell may be cast on any monster or player. It will inflict 2 points of body damage, the victim may roll two dice, for each shield they roll the damage is reduced by 1 to a minimum of zero",
+                        "element": "Fire",
+                        "cast": false
+                    },
+                    "courage": {
+                        "name": "Courage",
+                        "description":"This spell may be cast on any one player.  That player may roll two additional dice until the spell is broken, the spell is broken when there are no monsters visible to that player.",
+                        "element": "Fire",
+                        "cast": false
+                    },
+                    "fire_of_wrath": {
+                        "name": "Fire of Wrath",
+                        "description":"This spell may be cast at any one monster or player, anywhere on the board.  It will seek out your enemy and will inflict one body point unless your opponent can roll a shield on one combat dice.",
+                        "element": "Fire",
+                        "cast": false
+                    },
+                    "sleep": {
+                        "name": "Sleep",
+                        "description":"This spell will put one monster or player to sleep.  They may try to defend themselves by rolling one die per mind point.  If they roll a shield they are unaffected, once asleep they may not attack or defend.  They will awake if they roll a 6 at the start of their turn or if attacked.",
+                        "element": "Water",
+                        "cast": false
+                    },
+                    "veil_of_mist": {
+                        "name": "Veil of Mist",
+                        "description":"This spell may be cast on one player, that player may move through spaces that are occupied the next time they move.",
+                        "element": "Water",
+                        "cast": false
+                    },
+                    "water_of_healing": {
+                        "name": "Water of Healing",
+                        "description":"This spell may be cast on any one player.  It will restore up to four lost body points that have been lost.",
+                        "element": "Water",
+                        "cast": false
+                    }
+                },
                 "potions": {
                     "healing": {
                         "name": "Potion of Healing",

@@ -91,6 +91,20 @@
         {{#if (gt data.data.spell_slots 0)}}
         <div>
             <h2 class="center">Spells</h2>
+            <table>
+                <tr class="center">
+                    <th>Spell</th>
+                    <th>Focus</th>
+                    <th>Cast</th>
+                </tr>
+                {{#each data.data.spells as |spell|}}
+                <tr>
+                    <td>{{spell.name}}</td>
+                    <td>{{spell.element}}</td>
+                    <td><a><i class="fas fa-banhai"></i></a></td>
+                </tr>
+                {{/each}}
+            </table>
         </div>
         {{/if}}
     </div>
