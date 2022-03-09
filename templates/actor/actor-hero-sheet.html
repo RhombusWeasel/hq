@@ -18,8 +18,10 @@
                     <a class="center set-class">Select Class</a>
                 </h1>
             {{else}}
-                <h2 class="center">{{data.data.class_name}}</h2>
-                <h2 class="center">Gold: {{data.data.gold}}</h2>
+                <div class="flexrow">
+                    <h3 class="center">{{data.data.class_name}}</h3>
+                    <h3 class="center">Gold: {{data.data.gold}}</h3>
+                </div>
             {{/if}}
         </div>
         <div class="flexrow">
@@ -70,24 +72,27 @@
                 </table>
             </div>
         </div>
-        <div class="flexrow">
-            <div>
-                <h2>Potions</h2>
-                <table>
-                    <tr class="center">
-                        <th class="perc80">Potion</th>
-                        <th class="perc10">Amt</th>
-                        <th class="perc10">Use</th>
-                    </tr>
-                    {{#each data.data.potions as |potion|}}
-                    <tr class="center" title="{{potion.description}}">
-                        <td>{{potion.name}}</td>
-                        <td>{{potion.amount}}</td>
-                        <td><a><i class="fas fa-flask"></i></a></td>
-                    </tr>
-                    {{/each}}
-                </table>
-            </div>
+        <div>
+            <h2>Potions</h2>
+            <table>
+                <tr class="center">
+                    <th class="perc80">Potion</th>
+                    <th class="perc10">Amt</th>
+                    <th class="perc10">Use</th>
+                </tr>
+                {{#each data.data.potions as |potion|}}
+                <tr class="center" title="{{potion.description}}">
+                    <td>{{potion.name}}</td>
+                    <td>{{potion.amount}}</td>
+                    <td><a><i class="fas fa-flask"></i></a></td>
+                </tr>
+                {{/each}}
+            </table>
         </div>
+        {{#if (gt data.data.spell_slots 0)}}
+        <div>
+            <h3>Spells</h3>
+        </div>
+        {{/if}}
     </div>
 </form>
