@@ -29,6 +29,6 @@ export default class hqActorSheet extends ActorSheet {
       let el = ev.currentTarget;
       let v = parseInt(el.value);
       let st = hq.classes[v];
-      this.actor.update("data.class", v);
+      this.actor.update({"data.class": v});
     }
 }  
