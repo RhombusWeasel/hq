@@ -7,7 +7,8 @@
         "templates": {
             "core": {
                 "class": false,
-                "move": "2d6",
+                "gold": 0,
+                "move": 2,
                 "atk": 2,
                 "def": 2,
                 "mind": 2,
@@ -15,17 +16,18 @@
                     "min": 0,
                     "max": 4,
                     "value": 4
-                }
+                },
+                "atk_count": 1,
+                "spells": [],
+                "potions": []
             }
         },
         "hero": {
             "templates": ["core"],
-            "class": false,
-            "armour": {
-                "shield": false,
-                "chest": false,
-                "helmet": false
-            },
+            "class": "barbarian",
+            "shield": false,
+            "armour": false,
+            "helmet": false,
             "weapon": false
         },
         "monster": {
@@ -40,8 +42,19 @@
         ],
         "templates": {
             "core": {
-                "description": ""
+                "description": "",
+                "stat": "atk",
+                "buff": 1,
+                "overwrite": false
             }
+        },
+        "consumable": {
+            "templates": ["core"]
+        },
+        "gear": {
+            "templates": ["core"],
+            "slot": "weapon",
+            "cost": 100
         }
     }
 }
