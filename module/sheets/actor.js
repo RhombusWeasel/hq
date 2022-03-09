@@ -21,6 +21,8 @@ export default class hqActorSheet extends ActorSheet {
     }
 
     activateListeners(html) {
+      html.find(".set-class").click(this._on_set_class.bind(this));
+
       html.find(".class-select").change(this._on_class_select.bind(this));
     }
 
@@ -29,5 +31,14 @@ export default class hqActorSheet extends ActorSheet {
       let el = ev.currentTarget;
       let v = parseInt(el.value);
       hq.set_class(this.actor, v);
+    }
+
+    _on_set_class(ev) {
+      ev.preventDefault();
+      if (this.actor.data.data.class) {
+        this.actor.update({
+          "data.choose_class": false
+        });
+      }
     }
 }  

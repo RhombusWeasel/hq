@@ -6,6 +6,7 @@
         ],
         "templates": {
             "core": {
+                "choose_class": true,
                 "class": false,
                 "class_name": "Barbarian",
                 "gold": 0,

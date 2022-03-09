@@ -4,17 +4,22 @@
             <h1 class="center">
                 <div class="center" data-edit="name" contenteditable="">{{actor.name}}</div>
             </h1>
-            <h1 class="center">
-                <select name="data.class" class="class-select">
-                    {{#each heros as |hero|}}
-                        {{#if (eq ../data.data.class @index)}}
-                    <option value="{{@index}}" selected>{{hero.name}}</option>
-                        {{else}}
-                    <option value="{{@index}}">{{hero.name}}</option>
-                        {{/if}}
-                    {{/each}}
-                </select>
-            </h1>
+            {{#if (eq data.data.choose_class true)}}
+                <h1 class="center">
+                    <select name="data.class" class="class-select">
+                        {{#each heros as |hero|}}
+                            {{#if (eq ../data.data.class @index)}}
+                        <option value="{{@index}}" selected>{{hero.name}}</option>
+                            {{else}}
+                        <option value="{{@index}}">{{hero.name}}</option>
+                            {{/if}}
+                        {{/each}}
+                    </select>
+                    <a class="center set-class">Select Class</a>
+                </h1>
+            {{else}}
+                <h1 class="center">{{data.data.class_name}}</h1>
+            {{/if}}
         </div>
         <div class="flexrow">
             <div>
