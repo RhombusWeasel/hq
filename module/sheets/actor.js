@@ -23,6 +23,7 @@ export default class hqActorSheet extends ActorSheet {
     activateListeners(html) {
       html.find(".set-class").click(this._on_set_class.bind(this));
       html.find(".spell-toggle").click(this._on_spell_toggle.bind(this));
+      html.find(".cast-spell").click(this._on_spell_cast.bind(this));
 
       html.find(".class-select").change(this._on_class_select.bind(this));
     }
@@ -32,6 +33,15 @@ export default class hqActorSheet extends ActorSheet {
       let el = ev.currentTarget;
       let focus = el.closest(".spell-data").dataset.element;
       this.actor.update({data: {[focus]: !this.actor.data.data[focus]}});
+    }
+
+    _on_spell_cast(ev) {
+      ev.preventDefault();
+      let el = ev.currentTarget;
+      let sp = el.dataset.spell;
+      let spell_data = this.actor.data.data.spells[sp]
+      hq.chat.send(`${spell_data.element} Spell`, `${this.actor.name} casts ${spell_data.name}!`, spell_data.description);
+      this.actor.update({data: {spells: {[sp]: {cast: true}}}});
     }
 
     _on_class_select(ev) {
