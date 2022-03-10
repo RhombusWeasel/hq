@@ -22,8 +22,16 @@ export default class hqActorSheet extends ActorSheet {
 
     activateListeners(html) {
       html.find(".set-class").click(this._on_set_class.bind(this));
+      html.find(".spell-toggle").click(this._on_spell_toggle.bind(this));
 
       html.find(".class-select").change(this._on_class_select.bind(this));
+    }
+
+    _on_spell_toggle(ev) {
+      ev.preventDefault();
+      let el = ev.currentTarget;
+      let focus = el.closest(".spell-data").dataset.element;
+      this.actor.update({data: {[focus]: !this.actor.data.data[focus]}});
     }
 
     _on_class_select(ev) {

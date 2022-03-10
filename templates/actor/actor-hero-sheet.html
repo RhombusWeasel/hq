@@ -5,7 +5,7 @@
                 <div class="center" data-edit="name" contenteditable="">{{actor.name}}</div>
             </h1>
             {{#if (eq data.data.choose_class true)}}
-                <h1 class="center">
+                <h3 class="center">
                     <select name="data.class" class="class-select">
                         {{#each heros as |hero|}}
                             {{#if (eq ../data.data.class @index)}}
@@ -16,7 +16,7 @@
                         {{/each}}
                     </select>
                     <a class="center set-class">Select Class</a>
-                </h1>
+                </h3>
             {{else}}
                 <h3 class="center">{{data.data.class_name}}</h3>
             {{/if}}
@@ -100,24 +100,24 @@
                 </tr>
                 <tr class="center">
                 {{#if (eq data.data.air true)}}
-                    <td class="perc5 center" data-element="air"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
+                    <td class="perc5 center spell-data" data-element="air"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
                 {{else}}
-                    <td class="perc5 center" data-element="air"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
+                    <td class="perc5 center spell-data" data-element="air"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
                 {{/if}}
                 {{#if (eq data.data.earth true)}}
-                    <td class="perc5 center" data-element="earth"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
+                    <td class="perc5 center spell-data" data-element="earth"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
                 {{else}}
-                    <td class="perc5 center" data-element="earth"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
+                    <td class="perc5 center spell-data" data-element="earth"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
                 {{/if}}
                 {{#if (eq data.data.fire true)}}
-                    <td class="perc5 center" data-element="fire"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
+                    <td class="perc5 center spell-data" data-element="fire"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
                 {{else}}
-                    <td class="perc5 center" data-element="fire"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
+                    <td class="perc5 center spell-data" data-element="fire"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
                 {{/if}}
                 {{#if (eq data.data.water true)}}
-                    <td class="perc5 center" data-element="water"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
+                    <td class="perc5 center spell-data" data-element="water"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
                 {{else}}
-                    <td class="perc5 center" data-element="water"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
+                    <td class="perc5 center spell-data" data-element="water"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
                 {{/if}}
                 </tr>
             </table>
