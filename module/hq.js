@@ -30,11 +30,11 @@ Hooks.once("init", function () {
         }
         rvalue = parseFloat(rvalue);
         return {
-            "+": `$${(lvalue + rvalue).toFixed(2)}`,
-            "-": `$${(lvalue - rvalue).toFixed(2)}`,
-            "*": `$${(lvalue * rvalue).toFixed(2)}`,
-            "/": `$${(lvalue / rvalue).toFixed(2)}`,
-            "%": `$${(lvalue % rvalue).toFixed(2)}`,
+            "+": `${(lvalue + rvalue)}`,
+            "-": `${(lvalue - rvalue)}`,
+            "*": `${(lvalue * rvalue)}`,
+            "/": `${(lvalue / rvalue)}`,
+            "%": `${(lvalue % rvalue)}`,
         }[operator];
     });
 
