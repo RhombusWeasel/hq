@@ -22,6 +22,22 @@ Hooks.once("init", function () {
         return options.inverse(this);
     });
 
+    Handlebars.registerHelper("sum", function(lvalue, operator, rvalue, options) {
+        if (typeof(lvalue) == 'string') {
+            lvalue = parseFloat(lvalue.slice(1, lvalue.length));
+        }else {
+            lvalue = parseFloat(lvalue);
+        }
+        rvalue = parseFloat(rvalue);
+        return {
+            "+": `$${(lvalue + rvalue).toFixed(2)}`,
+            "-": `$${(lvalue - rvalue).toFixed(2)}`,
+            "*": `$${(lvalue * rvalue).toFixed(2)}`,
+            "/": `$${(lvalue / rvalue).toFixed(2)}`,
+            "%": `$${(lvalue % rvalue).toFixed(2)}`,
+        }[operator];
+    });
+
     Handlebars.registerHelper('has_spells', function (element, options) {
         let act = hq.get_actor(options.data.root.actor.name);
         if (act.data.data[element]) {
