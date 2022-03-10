@@ -75,9 +75,9 @@
             {{#if (eq data.data.move_rolled false)}}
                 <button class="move-roll">Move ({{sum data.data.move '+' data.data.tmp_move}}d6)</button>
             {{/if}}
-            {{#ifCond (gt data.data.atk_count 0) '&&' (eq data.data.attack_taken true)}}
+            {{#if (gt data.data.atk_count 0)}}
                 <button class="attack-roll">Attack ({{sum data.data.atk '+' (sum data.data.tmp_atk '+' data.data.spell_bonus_atk)}} dice)</button>
-            {{/ifCond}}
+            {{/if}}
             {{#ifCond data.data.attack_taken '==' false}}
                 <button class="search-traps">Traps?</button>
                 {{#in_room}}
