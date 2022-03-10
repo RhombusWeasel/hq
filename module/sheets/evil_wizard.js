@@ -3,7 +3,7 @@ export default class hqGMSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-    template: `systems/hq/templates/actor/evil-wizard-sheet.html`,
+    template: `systems/hq/templates/actor/actor-evil-wizard-sheet.html`,
     width: 500,
     height: 800,
     classes: ["hq"],
@@ -13,7 +13,7 @@ export default class hqGMSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/hq/templates/actor/evil-wizard-sheet.html`;
+    return `systems/hq/templates/actor/actor-evil-wizard-sheet.html`;
   }
 
   /** @override */
