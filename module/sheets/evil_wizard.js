@@ -4,7 +4,7 @@ export default class hqGMSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
     template: `systems/hq/templates/actor/actor-evil-wizard-sheet.html`,
-    width: 500,
+    width: 200,
     height: 800,
     classes: ["hq"],
     tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
@@ -24,7 +24,7 @@ export default class hqGMSheet extends ActorSheet {
   }
 
   activateListeners(html) {
-    html.find(".new-dungeon").click(this._on_new_game.bind(this));
+    html.find(".new-game").click(this._on_new_game.bind(this));
     
     //html.find(".class-select").change(this._on_class_select.bind(this));
     return super.activateListeners(html);
