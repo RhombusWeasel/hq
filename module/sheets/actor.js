@@ -24,6 +24,7 @@ export default class hqActorSheet extends ActorSheet {
       html.find(".set-class").click(this._on_set_class.bind(this));
       html.find(".spell-toggle").click(this._on_spell_toggle.bind(this));
       html.find(".cast-spell").click(this._on_spell_cast.bind(this));
+      html.find(".use-potion").click(this._on_potion_use.bind(this));
       html.find(".reset-spells").click(this._on_reset_spells.bind(this));
       
       html.find(".move-roll").click(this._on_roll_move.bind(this));
@@ -67,6 +68,15 @@ export default class hqActorSheet extends ActorSheet {
     _on_search_traps(ev) {}
 
     _on_search_treasure(ev) {}
+
+    _on_potion_use(ev) {
+      ev.preventDefault();
+      let el = ev.currentTarget;
+      let po = el.dataset.element;
+      hq.chat.send('Potion', `${this.actor.name} uses a ${this.actor.data.data.potions[po].name}!`)
+      this.actor.update({data: {potions: {[po]: {amount: act.data.data.potions[po].amount - 1}}}});
+      hq.potions[po](this.actor);
+    }
 
     _on_reset_spells(ev) {
       this.actor.update({
