@@ -75,9 +75,9 @@
             {{#if (eq data.data.move_rolled false)}}
                 <button class="move-roll">Move ({{sum data.data.move '+' data.data.tmp_move}}d6)</button>
             {{/if}}
-            {{#if (gt data.data.atk_count 0)}}
+            {{#ifCond data.data.atk_count '>' 0}}
                 <button class="attack-roll">Attack ({{sum data.data.atk '+' (sum data.data.tmp_atk '+' data.data.spell_bonus_atk)}} dice)</button>
-            {{/if}}
+            {{/ifCond}}
             <button class="search-traps">Traps?</button>
             {{#in_room}}
             <button class="search-treasure">Treasure?</button>
@@ -146,15 +146,15 @@
                 </tr>
                 {{#each data.data.spells as |spell|}}
                     {{#has_spells spell.key}}
-                        {{#if (eq spell.cast false)}}
+                        {{#ifCond (eq spell.cast false)}}
                 <tr class="center" title="{{spell.description}}">
                     <td>{{spell.name}}</td>
                     <td>{{spell.element}}</td>
-                    {{#if (gt data.data.atk_count 0)}}
+                    {{#ifCond data.data.atk_count '>' 0}}
                         <td class="cast-spell" data-spell="{{@key}}"><a><i class="fas fa-bahai"></i></a></td>
                     {{else}}
                     <td><a><i class="fas fa-times"></i></a></td>
-                    {{/if}}
+                    {{/ifCond}}
                 </tr>
                         {{/if}}
                     {{/has_spells}}
