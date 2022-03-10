@@ -72,7 +72,7 @@ export default class hqActorSheet extends ActorSheet {
     _on_potion_use(ev) {
       ev.preventDefault();
       let el = ev.currentTarget;
-      let po = el.dataset.element;
+      let po = el.dataset.key;
       hq.chat.send('Potion', `${this.actor.name} uses a ${this.actor.data.data.potions[po].name}!`)
       this.actor.update({data: {potions: {[po]: {amount: act.data.data.potions[po].amount - 1}}}});
       hq.potions[po](this.actor);
