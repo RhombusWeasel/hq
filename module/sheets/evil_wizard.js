@@ -32,6 +32,7 @@ export default class hqGMSheet extends ActorSheet {
 
   _on_new_game(ev) {
     ev.preventDefault();
+    console.log('EVIL_WIZARD: _on_new_game: Launching new dungeon.')
     hq.socket.emit('new_game', {});
   }
 
