@@ -129,11 +129,13 @@
                 </tr>
                 {{#each data.data.spells as |spell|}}
                     {{#has_spells spell.key}}
+                        {{#if (eq spell.cast false)}}
                 <tr class="center" title="{{spell.description}}">
                     <td>{{spell.name}}</td>
                     <td>{{spell.element}}</td>
                     <td class="cast-spell" data-spell="{{@key}}"><a><i class="fas fa-bahai"></i></a></td>
                 </tr>
+                        {{/if}}
                     {{/has_spells}}
                 {{/each}}
             </table>
