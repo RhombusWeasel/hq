@@ -26,7 +26,8 @@ export default class hqGMSheet extends ActorSheet {
   activateListeners(html) {
     html.find(".new-dungeon").click(this._on_new_game.bind(this));
     
-    html.find(".class-select").change(this._on_class_select.bind(this));
+    //html.find(".class-select").change(this._on_class_select.bind(this));
+    return super.activateListeners(html);
   }
 
   _on_new_game(ev) {
