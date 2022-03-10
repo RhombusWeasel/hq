@@ -24,8 +24,26 @@ export default class hqActorSheet extends ActorSheet {
       html.find(".set-class").click(this._on_set_class.bind(this));
       html.find(".spell-toggle").click(this._on_spell_toggle.bind(this));
       html.find(".cast-spell").click(this._on_spell_cast.bind(this));
+      html.find(".reset-spells").click(this._on_reset_spells.bind(this));
 
       html.find(".class-select").change(this._on_class_select.bind(this));
+    }
+
+    _on_reset_spells(ev) {
+      this.actor.update({
+        'data.spells.genie.cast': false,
+        'data.spells.swift_wind.cast': false,
+        'data.spells.tempest.cast': false,
+        'data.spells.heal_body.cast': false,
+        'data.spells.pass_through_rock.cast': false,
+        'data.spells.rock_skin.cast': false,
+        'data.spells.ball_of_flame.cast': false,
+        'data.spells.courage.cast': false,
+        'data.spells.fire_of_wrath.cast': false,
+        'data.spells.sleep.cast': false,
+        'data.spells.veil_of_mist.cast': false,
+        'data.spells.water_of_healing.cast': false,
+      });
     }
 
     _on_spell_toggle(ev) {
