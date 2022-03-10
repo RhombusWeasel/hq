@@ -152,11 +152,11 @@
                 <tr class="center" title="{{spell.description}}">
                     <td>{{spell.name}}</td>
                     <td>{{spell.element}}</td>
-                            {{#ifCond data.data.atk_count '>' 0}}
+                            {{#if (gt data.data.atk_count 0)}}
                     <td class="cast-spell" data-spell="{{@key}}"><a><i class="fas fa-bahai"></i></a></td>
                             {{else}}
                     <td><a><i class="fas fa-times"></i></a></td>
-                            {{/ifCond}}
+                            {{/if}}
                 </tr>
                         {{/if}}
                     {{/has_spells}}

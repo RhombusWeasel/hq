@@ -46,11 +46,11 @@ export default class hqActorSheet extends ActorSheet {
     _on_roll_attack(ev) {
       let attack_dice = this.actor.data.data.atk + this.actor.data.data.tmp_atk + this.actor.data.data.spell_bonus_atk
       let result = game.specialDiceRoller.heroQuest.rollFormula(`${attack_dice}h`, `${this.actor.name} attacks!`);
-      let hits = result.match(/skull/g).length;
+      let hits = result.match(/skull/g) || [];
       result = `${result.split('<hr>')[0]}`;
       if(hits > 0) {
         result += `
-          <p>${this.actor.name} lands ${hq.pluralize(hits, 'hit', 'hits')}</p>
+          <p>${this.actor.name} lands ${hq.pluralize(hits.length, 'hit', 'hits')}</p>
         `;
       }else{
         result += `
