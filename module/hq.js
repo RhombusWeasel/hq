@@ -15,5 +15,20 @@ Hooks.once("init", function () {
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("hq", actor_sheet, { makeDefault: true});
 
+    Handlebars.registerHelper('isGM', function (options) {
+        if (game.user.isGM) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
+    Handlebars.registerHelper('has_spells', function (element, options) {
+        let act = hq.get_actor(options.data.root.actor.name);
+        if (act.data.data[element]) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
     preload_handlebars_templates();
 });
