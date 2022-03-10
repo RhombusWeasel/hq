@@ -86,7 +86,7 @@ Hooks.once("init", function () {
 
 Hooks.on("ready", () => {
     console.log("HQ | Initializing socket listeners...")
-    game.socket.on(`system.hq`, (data) => {
+    game.socket.on(`hq`, (data) => {
         console.log('RECEIVE:', data.operation, data.data);
         if (data.operation in hq.socket.commands) {
             hq.socket.commands[data.operation](data.data);
