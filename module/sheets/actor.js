@@ -25,8 +25,27 @@ export default class hqActorSheet extends ActorSheet {
       html.find(".spell-toggle").click(this._on_spell_toggle.bind(this));
       html.find(".cast-spell").click(this._on_spell_cast.bind(this));
       html.find(".reset-spells").click(this._on_reset_spells.bind(this));
+      
+      html.find(".move-roll").click(this._on_roll_move.bind(this));
+      html.find(".attack-roll").click(this._on_roll_attack.bind(this));
+      html.find(".search-traps").click(this._on_search_traps.bind(this));
+      html.find(".search-treasure").click(this._on_search_treasure.bind(this));
 
       html.find(".class-select").change(this._on_class_select.bind(this));
+    }
+
+    _on_roll_move(ev) {
+      let move_dice = this.actor.data.data.move + this.actor.data.data.tmp_move;
+      hq.chat.send(`Move Roll`, `${this.actor.name} rolls [[${move_dice}d6]]`);
+      this.actor.update({
+        'data.tmp_move': 0,
+        'data.move_rolled': true,
+      });
+    }
+
+    _on_roll_attack(ev) {
+      let attack_dice = this.actor.data.data.atk + this.actor.data.data.tmp_atk + this.actor.data.data.spell_bonus_atk
+      console.log(game.specialDiceRoller.heroquest.rollFormula(`${attack_dice}h`, `${this.actor.name} attacks!`));
     }
 
     _on_reset_spells(ev) {
