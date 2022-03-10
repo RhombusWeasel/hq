@@ -2,10 +2,12 @@
     "Actor": {
         "types": [
             "hero",
-            "monster"
+            "monster",
+            "evil-wizard"
         ],
         "templates": {
             "core": {
+                "initiative": 0,
                 "choose_class": true,
                 "class": false,
                 "class_name": "Barbarian",
@@ -164,6 +166,9 @@
             "weapon": false
         },
         "monster": {
+            "templates": ["core"]
+        },
+        "evil-wizard": {
             "templates": ["core"]
         }
     },

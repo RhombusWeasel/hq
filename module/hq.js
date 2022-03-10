@@ -1,5 +1,6 @@
 import item_sheet from "./sheets/item.js";
 import actor_sheet from "./sheets/actor.js"
+import evil_sheet from "./sheets/evil_wizard.js"
 
 async function preload_handlebars_templates() {
     const template_paths = []
@@ -10,10 +11,11 @@ Hooks.once("init", function () {
     console.log("DC | Initializing Hero Quest.");
 
     Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("hq", item_sheet, { makeDefault: true});
+    Items.registerSheet("hq", item_sheet, {makeDefault: true});
 
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("hq", actor_sheet, { makeDefault: true});
+    Actors.registerSheet("hq", actor_sheet, {makeDefault: true});
+    Actors.registerSheet("hq", evil_sheet, {makeDefault: false});
 
     Handlebars.registerHelper('isGM', function (options) {
         if (game.user.isGM) {
