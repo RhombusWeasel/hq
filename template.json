@@ -19,6 +19,8 @@
                 "tmp_def": 0,
                 "tmp_mind": 0,
                 "move_rolled": false,
+                "attack_taken": false,
+                "search_taken": false,
                 "stone_skin": false,
                 "courage": false,
                 "spell_bonus_atk": 0,

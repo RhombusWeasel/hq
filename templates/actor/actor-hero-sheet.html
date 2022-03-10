@@ -75,13 +75,15 @@
             {{#if (eq data.data.move_rolled false)}}
                 <button class="move-roll">Move ({{sum data.data.move '+' data.data.tmp_move}}d6)</button>
             {{/if}}
-            {{#ifCond data.data.atk_count '>' 0}}
+            {{#ifCond (ifCond data.data.atk_count '>' 0) '&&' (eq data.data.attack_taken true)}}
                 <button class="attack-roll">Attack ({{sum data.data.atk '+' (sum data.data.tmp_atk '+' data.data.spell_bonus_atk)}} dice)</button>
             {{/ifCond}}
-            <button class="search-traps">Traps?</button>
-            {{#in_room}}
-            <button class="search-treasure">Treasure?</button>
-            {{/in_room}}
+            {{#ifCond data.data.attack_taken '==' false}}
+                <button class="search-traps">Traps?</button>
+                {{#in_room}}
+                    <button class="search-treasure">Treasure?</button>
+                {{/in_room}}
+            {{/ifCond}}
         </div>
         <div>
             <h2 class="center">Potions</h2>
@@ -146,15 +148,15 @@
                 </tr>
                 {{#each data.data.spells as |spell|}}
                     {{#has_spells spell.key}}
-                        {{#ifCond (eq spell.cast false)}}
+                        {{#if (eq spell.cast false)}}
                 <tr class="center" title="{{spell.description}}">
                     <td>{{spell.name}}</td>
                     <td>{{spell.element}}</td>
-                    {{#ifCond data.data.atk_count '>' 0}}
-                        <td class="cast-spell" data-spell="{{@key}}"><a><i class="fas fa-bahai"></i></a></td>
-                    {{else}}
+                            {{#ifCond data.data.atk_count '>' 0}}
+                    <td class="cast-spell" data-spell="{{@key}}"><a><i class="fas fa-bahai"></i></a></td>
+                            {{else}}
                     <td><a><i class="fas fa-times"></i></a></td>
-                    {{/ifCond}}
+                            {{/ifCond}}
                 </tr>
                         {{/if}}
                     {{/has_spells}}
