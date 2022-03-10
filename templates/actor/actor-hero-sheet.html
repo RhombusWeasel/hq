@@ -93,16 +93,48 @@
             <h2 class="center">Spells</h2>
             <table>
                 <tr class="center">
+                    <th>Air</th>
+                    <th>Earth</th>
+                    <th>Fire</th>
+                    <th>Water</th>
+                </tr>
+                <tr class="center">
+                {{#if (eq data.data.air true)}}
+                    <td class="perc5 center" data-element="air"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
+                {{else}}
+                    <td class="perc5 center" data-element="air"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
+                {{/if}}
+                {{#if (eq data.data.earth true)}}
+                    <td class="perc5 center" data-element="earth"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
+                {{else}}
+                    <td class="perc5 center" data-element="earth"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
+                {{/if}}
+                {{#if (eq data.data.fire true)}}
+                    <td class="perc5 center" data-element="fire"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
+                {{else}}
+                    <td class="perc5 center" data-element="fire"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
+                {{/if}}
+                {{#if (eq data.data.water true)}}
+                    <td class="perc5 center" data-element="water"><a class="spell-toggle"><i class="fas fa-check"></i></a></td>
+                {{else}}
+                    <td class="perc5 center" data-element="water"><a class="spell-toggle"><i class="fas fa-times"></i></a></td>
+                {{/if}}
+                </tr>
+            </table>
+            <table>
+                <tr class="center">
                     <th>Spell</th>
                     <th>Focus</th>
                     <th>Cast</th>
                 </tr>
                 {{#each data.data.spells as |spell|}}
+                    {{#if (eq ../data.data[@key] true)}}
                 <tr class="center" title="{{spell.description}}">
                     <td>{{spell.name}}</td>
                     <td>{{spell.element}}</td>
                     <td><a><i class="fas fa-bahai"></i></a></td>
                 </tr>
+                    {{/if}}
                 {{/each}}
             </table>
         </div>
