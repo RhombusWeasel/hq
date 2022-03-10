@@ -45,8 +45,16 @@ export default class hqActorSheet extends ActorSheet {
 
     _on_roll_attack(ev) {
       let attack_dice = this.actor.data.data.atk + this.actor.data.data.tmp_atk + this.actor.data.data.spell_bonus_atk
-      console.log(game.specialDiceRoller.heroquest.rollFormula(`${attack_dice}h`, `${this.actor.name} attacks!`));
+      console.log(game.specialDiceRoller.heroQuest.rollFormula(`${attack_dice}h`, `${this.actor.name} attacks!`));
+      this.actor.update({
+        'data.tmp_atk': 0,
+        'data.atk_count': this.actor.data.data.atk_count - 1,
+      });
     }
+
+    _on_search_traps(ev) {}
+
+    _on_search_treasure(ev) {}
 
     _on_reset_spells(ev) {
       this.actor.update({
@@ -78,7 +86,12 @@ export default class hqActorSheet extends ActorSheet {
       let sp = el.dataset.spell;
       let spell_data = this.actor.data.data.spells[sp]
       hq.chat.send(`${spell_data.element} Spell`, `${this.actor.name} casts ${spell_data.name}!`, spell_data.description);
-      this.actor.update({data: {spells: {[sp]: {cast: true}}}});
+      this.actor.update({
+        data: {
+          spells: {[sp]: {cast: true}},
+          atk_count: this.actor.data.data.atk_count - 1,
+        }
+      });
     }
 
     _on_class_select(ev) {
