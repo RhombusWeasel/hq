@@ -14,6 +14,12 @@
                 "atk": 2,
                 "def": 2,
                 "mind": 2,
+                "tmp_move": 0,
+                "tmp_atk": 0,
+                "tmp_def": 0,
+                "tmp_mind": 0,
+                "stone_skin": false,
+                "courage": false,
                 "body": {
                     "min": 0,
                     "max": 4,
