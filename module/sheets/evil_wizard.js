@@ -33,6 +33,7 @@ export default class hqGMSheet extends ActorSheet {
     let heros = hq.gm.get_online_actors();
     for (let i = 0; i < heros.length; i++) {
       const hero = heros[i];
+      console.log(hero);
       hero.update({
         'data.initiative': 0,
         'data.atk_count': 1,
@@ -65,6 +66,7 @@ export default class hqGMSheet extends ActorSheet {
         'data.spells.veil_of_mist.cast': false,
         'data.spells.water_of_healing.cast': false,
       });
+      console.log(hero);
     }
   }
 
