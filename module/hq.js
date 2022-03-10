@@ -15,7 +15,7 @@ Hooks.once("init", function () {
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("hq", actor_sheet, {makeDefault: true});
-    Actors.registerSheet("hq", evil_sheet, {makeDefault: false});
+    Actors.registerSheet("hq", evil_sheet, {makeDefault: true});
 
     Handlebars.registerHelper('isGM', function (options) {
         if (game.user.isGM) {

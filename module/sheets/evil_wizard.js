@@ -4,7 +4,7 @@ export default class hqGMSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
     template: `systems/hq/templates/actor/actor-evil-wizard-sheet.html`,
-    width: 200,
+    width: 400,
     height: 800,
     classes: ["hq"],
     tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
