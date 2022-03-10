@@ -32,46 +32,7 @@ export default class hqGMSheet extends ActorSheet {
 
   _on_new_game(ev) {
     ev.preventDefault();
-    let heros = hq.gm.get_online_actors();
-    console.log(heros);
-    for (let i = 0; i < heros.length; i++) {
-      const hero = heros[i];
-      console.log(hero);
-      hero.update({
-        'data.initiative': 0,
-        'data.atk_count': 1,
-        'data.move_rolled': false,
-        'data.attack_taken': false,
-        'data.search_taken': false,
-        'data.stone_skin': 0,
-        'data.courage': 0,
-        'data.tmp_move': 0,
-        'data.tmp_atk': 0,
-        'data.tmp_def': 0,
-        'data.tmp_mind': 0,
-        'spell_bonus_atk': 0,
-        'spell_bonus_def': 0,
-        'data.body.value': hero.data.data.body.max,
-        'data.air': false,
-        'data.earth': false,
-        'data.fire': false,
-        'data.water': false,
-        'data.spells.genie.cast': false,
-        'data.spells.swift_wind.cast': false,
-        'data.spells.tempest.cast': false,
-        'data.spells.heal_body.cast': false,
-        'data.spells.pass_through_rock.cast': false,
-        'data.spells.rock_skin.cast': false,
-        'data.spells.ball_of_flame.cast': false,
-        'data.spells.courage.cast': false,
-        'data.spells.fire_of_wrath.cast': false,
-        'data.spells.sleep.cast': false,
-        'data.spells.veil_of_mist.cast': false,
-        'data.spells.water_of_healing.cast': false,
-      });
-      console.log(hero);
-    }
-    hq.socket.emit('refresh', {});
+    hq.socket.emit('new_game', {});
   }
 
 }
