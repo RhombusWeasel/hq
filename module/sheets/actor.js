@@ -73,9 +73,13 @@ export default class hqActorSheet extends ActorSheet {
       ev.preventDefault();
       let el = ev.currentTarget;
       let po = el.dataset.key;
-      hq.chat.send('Potion', `${this.actor.name} uses a ${this.actor.data.data.potions[po].name}!`)
-      this.actor.update({data: {potions: {[po]: {amount: this.actor.data.data.potions[po].amount - 1}}}});
-      hq.potions[po](this.actor);
+      if (this.actor.data.data.potions[po].amount > 0) {
+        hq.chat.send('Potion', `${this.actor.name} uses a ${this.actor.data.data.potions[po].name}!`)
+        this.actor.update({data: {potions: {[po]: {amount: this.actor.data.data.potions[po].amount - 1}}}});
+        hq.potions[po](this.actor);
+      }else{
+        hq.dialog.prompt(`I can't let you do that Dave.`, `You have no ${this.actor.data.data.potions[po].name}`);
+      }
     }
 
     _on_reset_spells(ev) {
