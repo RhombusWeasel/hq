@@ -20,6 +20,8 @@
                 "tmp_mind": 0,
                 "stone_skin": false,
                 "courage": false,
+                "spell_bonus_atk": 0,
+                "spell_bonus_def": 0,
                 "body": {
                     "min": 0,
                     "max": 4,

@@ -24,11 +24,11 @@ Hooks.once("init", function () {
 
     Handlebars.registerHelper("sum", function(lvalue, operator, rvalue, options) {
         if (typeof(lvalue) == 'string') {
-            lvalue = parseFloat(lvalue.slice(1, lvalue.length));
+            lvalue = parseInt(lvalue.slice(1, lvalue.length));
         }else {
-            lvalue = parseFloat(lvalue);
+            lvalue = parseInt(lvalue);
         }
-        rvalue = parseFloat(rvalue);
+        rvalue = parseInt(rvalue);
         return {
             "+": `${(lvalue + rvalue)}`,
             "-": `${(lvalue - rvalue)}`,
@@ -41,6 +41,13 @@ Hooks.once("init", function () {
     Handlebars.registerHelper('has_spells', function (element, options) {
         let act = hq.get_actor(options.data.root.actor.name);
         if (act.data.data[element]) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
+    Handlebars.registerHelper('in_room', function (options) {
+        if (hq.hero.in_room(options.data.root.actor.name)) {
             return options.fn(this);
         }
         return options.inverse(this);
