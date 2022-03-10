@@ -61,6 +61,7 @@ export default class hqActorSheet extends ActorSheet {
       this.actor.update({
         'data.tmp_atk': 0,
         'data.atk_count': this.actor.data.data.atk_count - 1,
+        'data.attack_taken': true,
       });
       ChatMessage.create({content: result});
     }
