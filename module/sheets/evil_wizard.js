@@ -71,6 +71,7 @@ export default class hqGMSheet extends ActorSheet {
       });
       console.log(hero);
     }
+    hq.socket.emit('refresh', {});
   }
 
 }
