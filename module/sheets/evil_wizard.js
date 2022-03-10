@@ -30,6 +30,7 @@ export default class hqGMSheet extends ActorSheet {
   }
 
   _on_new_game(ev) {
+    ev.preventDefault();
     let heros = hq.gm.get_online_actors();
     for (let i = 0; i < heros.length; i++) {
       const hero = heros[i];
