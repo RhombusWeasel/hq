@@ -100,6 +100,7 @@ export default class hqActorSheet extends ActorSheet {
     this.actor.update({
       'data.attack_taken': true,
     });
+    hq.chat.send(`Let looting commence!`, `${this.actor.name} searches for treasure.`);
     hq.socket.emit('draw_treasure', {name: this.actor.name});
   }
 

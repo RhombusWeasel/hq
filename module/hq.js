@@ -106,11 +106,7 @@ Hooks.on("ready", () => {
         if (journal) {
             game.hq.treasure_deck = hq.journal.load('treasure_deck');
         }else{
-            let deck = {
-                deck: hq.deck.shuffle(hq.deck.new('treasure')),
-                discard: []
-            }
-            game.hq.treasure_deck = hq.journal.load('action_deck', deck);
+            game.hq.treasure_deck = hq.journal.load('treasure_deck', hq.deck.shuffle(hq.deck.new('treasure')));
         }
     };
 });
