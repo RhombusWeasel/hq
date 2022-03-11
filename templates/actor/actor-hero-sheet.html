@@ -87,7 +87,7 @@
                 {{#if (gt data.data.atk_count 0)}}
             <button class="attack-roll">Attack ({{sum data.data.atk '+' (sum data.data.tmp_atk '+' data.data.spell_bonus_atk)}} dice)</button>
                 {{/if}}
-                {{#ifCond (eq data.data.attack_taken false) '&&' (eq data.data.search_taken false)}}
+                {{#ifCond (eq data.data.attack_taken false) '&&' (ifCond (eq data.data.search_taken false) '&&' (eq data.data.spell_taken true))}}
             <button class="search-traps">Traps?</button>
                     {{#in_room}}
             <button class="search-treasure">Treasure?</button>
