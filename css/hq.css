@@ -4,3 +4,7 @@
 .flexrow {
   flex-direction: row;
 }
+.tooltip {
+  width: max-content; 
+  max-width: 200px;
+}
