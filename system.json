@@ -10,6 +10,7 @@
   "styles": ["css/hq.css"],
   "scripts": ["lib/lib.js"],
   "packs": [],
+  "socket": true,
   "languages": [
     {
       "lang": "en",
