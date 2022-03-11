@@ -131,7 +131,7 @@ export default class hqActorSheet extends ActorSheet {
       data: {
         spells: {[sp]: {cast: true}},
         atk_count: this.actor.data.data.atk_count - 1,
-        atk_taken: true,
+        attack_taken: true,
       }
     });
   }
