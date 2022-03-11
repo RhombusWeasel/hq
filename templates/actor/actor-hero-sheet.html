@@ -87,10 +87,11 @@
             {{/ifCond}}
         </div>
         {{else}}
-            {{if (eq data.data.initiative 0)}}
+            {{#if (eq data.data.initiative 0)}}
             <button class="turn-roll">Roll Initiative</button>
             {{/if}}
         {{/ifCond}}
+        {{#has_potions}}
         <div>
             <h2 class="center">Potions</h2>
             <table>
@@ -108,6 +109,7 @@
                 {{/each}}
             </table>
         </div>
+        {{/has_potions}}
         {{#if (gt data.data.spell_slots 0)}}
         <div>
             <h2 class="center">Spells</h2>
