@@ -15,7 +15,7 @@ Hooks.once("init", function () {
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("hq", actor_sheet, {makeDefault: true});
-    Actors.registerSheet("hq", evil_sheet, {makeDefault: true});
+    Actors.registerSheet("hq", evil_sheet, {makeDefault: false});
 
     Handlebars.registerHelper('isGM', function (options) {
         if (game.user.isGM) {
@@ -74,6 +74,16 @@ Hooks.once("init", function () {
         return options.inverse(this);
     });
 
+    Handlebars.registerHelper('has_potions', function (options) {
+        let act = hq.get_actor(options.data.root.actor.name);
+        act.data.data.options.forEach(potion => {
+            if(potion.amount > 0) {
+                return options.fn(this);
+            }
+        });
+        return options.inverse(this);
+    });
+
     Handlebars.registerHelper('in_room', function (options) {
         if (hq.hero.in_room(options.data.root.actor.name)) {
             return options.fn(this);
@@ -87,7 +97,7 @@ Hooks.once("init", function () {
 Hooks.on("ready", () => {
     console.log("HQ | Initializing socket listeners...")
     game.socket.on(`hq`, (data) => {
-        console.log('RECEIVE:', data.operation, data.data);
+        console.log('RECEIVE:', data);
         if (data.operation in hq.socket.commands) {
             hq.socket.commands[data.operation](data.data);
             hq.gm.update_sheet();
