@@ -31,7 +31,9 @@ export default class hqGMSheet extends ActorSheet {
   }
 
   _on_new_game(ev) {
-    console.log('EVIL_WIZARD: _on_new_game: Launching new dungeon.')
+    console.log('EVIL_WIZARD: _on_new_game: Launching new dungeon.');
+    game.hq.treasure_deck = hq.deck.shuffle(hq.deck.new('treasure'));
+    hq.journal.save('treasure_deck', game.hq.treasure_deck);
     hq.socket.emit('new_game', {});
   }
 
