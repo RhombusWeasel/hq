@@ -76,7 +76,7 @@ Hooks.once("init", function () {
 
     Handlebars.registerHelper('has_potions', function (options) {
         let act = hq.get_actor(options.data.root.actor.name);
-        act.data.data.options.forEach(potion => {
+        act.data.data.potions.forEach(potion => {
             if(potion.amount > 0) {
                 return options.fn(this);
             }
