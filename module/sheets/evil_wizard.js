@@ -19,7 +19,7 @@ export default class hqGMSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-    data.heros = hq.gm.get_online_actors();
+    data.heros = hq.gm.get_online_actors().sort((a, b) => {return hq.sort.compare(a, b, 'initiative')});
     return data;
   }
 

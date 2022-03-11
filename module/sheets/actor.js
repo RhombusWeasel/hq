@@ -43,6 +43,9 @@ export default class hqActorSheet extends ActorSheet {
     this.actor.update({
       'data.initiative': r._total
     });
+    r.toMessage({
+      flavor: `Initiative`
+    });
   }
 
   _on_roll_move(ev) {

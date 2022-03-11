@@ -18,6 +18,7 @@
                 "def": 2,
                 "mind": 2,
                 "tmp_move": 0,
+                "cur_move": 0,
                 "tmp_atk": 0,
                 "tmp_def": 0,
                 "tmp_mind": 0,
