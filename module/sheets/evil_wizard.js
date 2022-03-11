@@ -19,7 +19,7 @@ export default class hqGMSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-    data.heros = hq.classes;
+    data.heros = hq.gm.get_online_actors();
     return data;
   }
 

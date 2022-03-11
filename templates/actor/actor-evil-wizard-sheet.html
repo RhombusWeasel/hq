@@ -2,4 +2,15 @@
     <div class="flexrow">
         <button class="new-game">New Dungeon</button>
     </div>
+    <div>
+        <h2>Heros</h2>
+        <table>
+        {{#each heros as |hero|}}
+            <tr>
+                <td>{{hero.name}}</td>
+                <td>{{hero.body.value}}/{{hero.body.max}}</td>
+            </tr>
+        {{/each}}
+        </table>
+    </div>
 </form>

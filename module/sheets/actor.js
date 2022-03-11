@@ -39,9 +39,9 @@ export default class hqActorSheet extends ActorSheet {
   }
 
   _on_roll_turn(ev) {
-    let r = new Roll('2d6');
+    let r = new Roll('2d6').evaluate({async: false});
     this.actor.update({
-      'data.initiative': r.result
+      'data.initiative': r._total
     });
   }
 
