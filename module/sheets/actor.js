@@ -50,10 +50,11 @@ export default class hqActorSheet extends ActorSheet {
 
   _on_roll_move(ev) {
     let move_dice = this.actor.data.data.move + this.actor.data.data.tmp_move;
-    hq.chat.send(`Move Roll`, `${this.actor.name} rolls [[${move_dice}d6]]`);
+    let r = new Roll(`${move_dice}d6`).evaluate({async: false});
     this.actor.update({
       'data.tmp_move': 0,
       'data.move_rolled': true,
+      'data.cur_move': r._total,
     });
   }
 
