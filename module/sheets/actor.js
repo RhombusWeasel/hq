@@ -86,11 +86,21 @@ export default class hqActorSheet extends ActorSheet {
   }
 
   _on_search_traps(ev) {
-    hq.chat.send(`Something's off here`, `${this.actor.name} searches for traps.`, `The Evil Wizard player should feel compelled to reveal any traps in the hero's current room OR their current stretch of corridor.`)
+    hq.chat.send(
+      `Something's off here`,
+      `${this.actor.name} searches for traps.`,
+      `The Evil Wizard player should feel compelled to reveal any traps in the hero's current room OR their current stretch of corridor.`
+    );
+    this.actor.update({
+      'data.attack_taken': true,
+    });
   }
 
   _on_search_treasure(ev) {
-
+    this.actor.update({
+      'data.attack_taken': true,
+    });
+    hq.socket.emit('draw_treasure', {name: this.actor.name});
   }
 
   _on_potion_use(ev) {

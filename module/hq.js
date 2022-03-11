@@ -96,6 +96,25 @@ Hooks.once("init", function () {
     preload_handlebars_templates();
 });
 
+Hooks.on("ready", () => {
+    if (game.user.isGM) {
+        // Initialize action deck
+        game.hq = {
+            current_initiative: 12,
+        };
+        let journal = game.journal.getName('treasure_deck');
+        if (journal) {
+            game.hq.treasure_deck = hq.journal.load('treasure_deck');
+        }else{
+            let deck = {
+                deck: hq.deck.shuffle(hq.deck.new('treasure')),
+                discard: []
+            }
+            game.hq.treasure_deck = hq.journal.load('action_deck', deck);
+        }
+    };
+});
+
 Hooks.on("updateToken", (token, updata, opts, id) => {
     game.user.character.sheet.render(false);
 });
