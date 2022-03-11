@@ -76,11 +76,14 @@ Hooks.once("init", function () {
 
     Handlebars.registerHelper('has_potions', function (options) {
         let act = hq.get_actor(options.data.root.actor.name);
-        act.data.data.potions.forEach(potion => {
-            if(potion.amount > 0) {
-                return options.fn(this);
+        for (const key in act.data.data.potions) {
+            if (Object.hasOwnProperty.call(act.data.data.potions, key)) {
+                const potion = act.data.data.potions[key];
+                if(potion.amount > 0) {
+                    return options.fn(this);
+                }
             }
-        });
+        }
         return options.inverse(this);
     });
 
