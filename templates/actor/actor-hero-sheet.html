@@ -80,10 +80,10 @@
         <button class="turn-roll">Roll Initiative</button>
             {{/if}}
             {{#if (eq data.data.my_turn true)}}
-        <div class="flexrow">
                 {{#if (eq data.data.move_rolled false)}}
-            <button class="move-roll">Move ({{sum data.data.move '+' data.data.tmp_move}}d6)</button>
+        <button class="move-roll">Move ({{sum data.data.move '+' data.data.tmp_move}}d6)</button>
                 {{/if}}
+        <div class="flexrow">
                 {{#if (gt data.data.atk_count 0)}}
             <button class="attack-roll">Attack ({{sum data.data.atk '+' (sum data.data.tmp_atk '+' data.data.spell_bonus_atk)}} dice)</button>
                 {{/if}}

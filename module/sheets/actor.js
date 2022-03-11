@@ -59,6 +59,11 @@ export default class hqActorSheet extends ActorSheet {
   }
 
   _on_roll_attack(ev) {
+    let tgt = hq.hero.get_target()
+    if (tgt == false) {
+      hq.chat.send('No Target', 'You must select a target to attack');
+      return;
+    }
     let attack_dice = this.actor.data.data.atk + this.actor.data.data.tmp_atk + this.actor.data.data.spell_bonus_atk
     let result = game.specialDiceRoller.heroQuest.rollFormula(`${attack_dice}h`, `${this.actor.name} attacks!`);
     let hits = result.match(/skull/g) || [];
@@ -80,9 +85,13 @@ export default class hqActorSheet extends ActorSheet {
     ChatMessage.create({content: result});
   }
 
-  _on_search_traps(ev) {}
+  _on_search_traps(ev) {
+    hq.chat.send(`Something's off here`, `${this.actor.name} searches for traps.`, `The Evil Wizard player should feel compelled to reveal any traps in the hero's current room OR their current stretch of corridor.`)
+  }
 
-  _on_search_treasure(ev) {}
+  _on_search_treasure(ev) {
+
+  }
 
   _on_potion_use(ev) {
     ev.preventDefault();
