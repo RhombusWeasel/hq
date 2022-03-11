@@ -8,6 +8,7 @@
         "templates": {
             "core": {
                 "initiative": 0,
+                "in_dungeon": false,
                 "choose_class": true,
                 "class": false,
                 "class_name": "Barbarian",
