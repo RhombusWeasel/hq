@@ -71,25 +71,27 @@
                 </table>
             </div>
         </div>
-        {{#ifCond (eq data.data.in_dungeon true) '&&' ('eq data.data.my_turn true')}}
+        {{#if(eq data.data.in_dungeon true)}}
             {{#if (eq data.data.initiative 0)}}
         <button class="turn-roll">Roll Initiative</button>
             {{/if}}
+            {{#if (eq data.data.my_turn true)}}
         <div class="flexrow">
-            {{#if (eq data.data.move_rolled false)}}
-                <button class="move-roll">Move ({{sum data.data.move '+' data.data.tmp_move}}d6)</button>
+                {{#if (eq data.data.move_rolled false)}}
+            <button class="move-roll">Move ({{sum data.data.move '+' data.data.tmp_move}}d6)</button>
+                {{/if}}
+                {{#if (gt data.data.atk_count 0)}}
+            <button class="attack-roll">Attack ({{sum data.data.atk '+' (sum data.data.tmp_atk '+' data.data.spell_bonus_atk)}} dice)</button>
+                {{/if}}
+                {{#ifCond (eq data.data.attack_taken false) '&&' (eq data.data.search_taken false)}}
+            <button class="search-traps">Traps?</button>
+                    {{#in_room}}
+            <button class="search-treasure">Treasure?</button>
+                    {{/in_room}}
+                {{/ifCond}}
             {{/if}}
-            {{#if (gt data.data.atk_count 0)}}
-                <button class="attack-roll">Attack ({{sum data.data.atk '+' (sum data.data.tmp_atk '+' data.data.spell_bonus_atk)}} dice)</button>
-            {{/if}}
-            {{#ifCond (eq data.data.attack_taken false) '&&' (eq data.data.search_taken false)}}
-                <button class="search-traps">Traps?</button>
-                {{#in_room}}
-                    <button class="search-treasure">Treasure?</button>
-                {{/in_room}}
-            {{/ifCond}}
         </div>
-        {{/ifCond}}
+        {{/if}}
         {{#has_potions}}
         <div>
             <h2 class="center">Potions</h2>
