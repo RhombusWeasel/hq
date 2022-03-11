@@ -72,6 +72,9 @@
             </div>
         </div>
         {{#ifCond (eq data.data.in_dungeon true) '&&' ('eq data.data.my_turn true')}}
+            {{#if (eq data.data.initiative 0)}}
+        <button class="turn-roll">Roll Initiative</button>
+            {{/if}}
         <div class="flexrow">
             {{#if (eq data.data.move_rolled false)}}
                 <button class="move-roll">Move ({{sum data.data.move '+' data.data.tmp_move}}d6)</button>
@@ -86,10 +89,6 @@
                 {{/in_room}}
             {{/ifCond}}
         </div>
-        {{else}}
-            {{#if (eq data.data.initiative 0)}}
-            <button class="turn-roll">Roll Initiative</button>
-            {{/if}}
         {{/ifCond}}
         {{#has_potions}}
         <div>
