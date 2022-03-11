@@ -97,6 +97,6 @@ Hooks.once("init", function () {
     preload_handlebars_templates();
 });
 
-Hooks.on("ready", () => {
-    
+Hooks.on("updateToken", (token, updata, opts, id) => {
+    game.user.character.sheet.render(false);
 });
