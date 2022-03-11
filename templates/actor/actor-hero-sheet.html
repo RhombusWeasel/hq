@@ -106,11 +106,13 @@
                     <th class="perc10">Use</th>
                 </tr>
                 {{#each data.data.potions as |potion|}}
+                    {{#if (gt potion.amount 0)}}
                 <tr class="center" title="{{potion.description}}">
                     <td>{{potion.name}}</td>
                     <td>{{potion.amount}}</td>
                     <td class="use-potion" data-key="{{@key}}"><a><i class="fas fa-flask"></i></a></td>
                 </tr>
+                    {{/if}}
                 {{/each}}
             </table>
         </div>
