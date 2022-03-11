@@ -29,12 +29,20 @@ export default class hqActorSheet extends ActorSheet {
     html.find(".use-potion").click(this._on_potion_use.bind(this));
     html.find(".reset-spells").click(this._on_reset_spells.bind(this));
     
+    html.find(".turn-roll").click(this._on_roll_turn.bind(this));
     html.find(".move-roll").click(this._on_roll_move.bind(this));
     html.find(".attack-roll").click(this._on_roll_attack.bind(this));
     html.find(".search-traps").click(this._on_search_traps.bind(this));
     html.find(".search-treasure").click(this._on_search_treasure.bind(this));
 
     html.find(".class-select").change(this._on_class_select.bind(this));
+  }
+
+  _on_roll_turn(ev) {
+    let r = new Roll('2d6');
+    this.actor.update({
+      'data.initiative': r.result
+    });
   }
 
   _on_roll_move(ev) {
