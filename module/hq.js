@@ -129,9 +129,8 @@ function get_token_count(t) {
 }
 
 Hooks.on('preCreateToken', function (document, createData, options, userId) {
-    console.log('W00T', document, createData);
-    let act = game.actors.getName(document.name);
-    if (!(act.data.hasPlayerOwner)) {
+    let act = hq.get_actor(document.name);
+    if (!(act.hasPlayerOwner)) {
         let same = canvas.tokens.placeables.find(i => i.data.actorId == arguments[1].actorId);
         let amt = get_token_count(act);
         document.data.update({name: createData.name += ` ${amt + 1}`});
