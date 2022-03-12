@@ -49,6 +49,7 @@ export default class hqGMSheet extends ActorSheet {
     let heros = hq.gm.get_online_actors().sort((a, b) => {return hq.sort.compare(a, b, 'initiative')});
     for (let i = 0; i < heros.length; i++) {
       const hero = heros[i];
+      console.log(hero);
       if (hero.data.data.attack_taken == false && hero.data.data.move_rolled == false) {
         hq.socket.emit('next_turn', {name: hero.name});
         return;
@@ -58,7 +59,7 @@ export default class hqGMSheet extends ActorSheet {
   }
 
   _on_next_round(ev) {
-
+    hq.socket.emit('next_round');
   }
 
 }
