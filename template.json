@@ -157,6 +157,19 @@
                         "description": "You find a small purple bottle, it is a potion of strength!  You may drink the potion at any time, it will enable you to roll two extra combat dice in attack in your next attack.  The card is then discarded.",
                         "amount": 0
                     }
+                },
+                "stats": {
+                    "squares_moved": 0,
+                    "attacks_made": 0,
+                    "total_hits": 0,
+                    "total_kills": 0,
+                    "damage_taken": 0,
+                    "gold_found": 0,
+                    "search_traps": 0,
+                    "search_treasure": 0,
+                    "kills": {},
+                    "potions": {},
+                    "spells": {}
                 }
             }
         },

@@ -56,6 +56,7 @@ export default class hqActorSheet extends ActorSheet {
       'data.tmp_move': 0,
       'data.move_rolled': true,
       'data.cur_move': r._total,
+      'data.stats.squares_moved': this.actor.data.data.stats.squares_moved + data
     });
     r.toMessage({
       flavor: `Movement`
@@ -91,6 +92,8 @@ export default class hqActorSheet extends ActorSheet {
       'data.tmp_atk': 0,
       'data.atk_count': this.actor.data.data.atk_count - 1,
       'data.attack_taken': true,
+      'data.stats.attacks_made': this.actor.data.data.stats.attacks_made + 1,
+      'data.stats.total_hits': this.actor.data.data.stats.total_hits + hits.length,
     });
     ChatMessage.create({content: result});
   }
@@ -104,6 +107,7 @@ export default class hqActorSheet extends ActorSheet {
     this.actor.update({
       'data.attack_taken': true,
       'data.atk_count': this.actor.data.data.atk_count - 1,
+      'data.stats.search_traps': this.actor.data.data.stats.search_traps + 1,
     });
   }
 
@@ -111,6 +115,7 @@ export default class hqActorSheet extends ActorSheet {
     this.actor.update({
       'data.attack_taken': true,
       'data.atk_count': this.actor.data.data.atk_count - 1,
+      'data.stats.search_treasure': this.actor.data.data.stats.search_treasure + 1,
     });
     hq.chat.send(`Let looting commence!`, `${this.actor.name} searches for treasure.`);
     hq.socket.emit('draw_treasure', {name: this.actor.name});
@@ -122,7 +127,20 @@ export default class hqActorSheet extends ActorSheet {
     let po = el.dataset.key;
     if (this.actor.data.data.potions[po].amount > 0) {
       hq.chat.send('Potion', `${this.actor.name} uses a ${this.actor.data.data.potions[po].name}!`)
-      this.actor.update({data: {potions: {[po]: {amount: this.actor.data.data.potions[po].amount - 1}}}});
+      this.actor.update({
+        data: {
+          potions: {
+            [po]: {
+              amount: this.actor.data.data.potions[po].amount - 1
+            }
+          },
+          stats: {
+            potions: {
+              [po]: this.actor.data.data.stats.potions?.[po] ? this.actor.data.data.stats.potions[po] + 1 : 1,
+            },
+          }
+        }
+      });
       hq.potions[po](this.actor);
     }else{
       hq.dialog.prompt(`I can't let you do that Dave.`, `You have no ${this.actor.data.data.potions[po].name}`);
@@ -148,6 +166,11 @@ export default class hqActorSheet extends ActorSheet {
         spells: {[sp]: {cast: true}},
         atk_count: this.actor.data.data.atk_count - 1,
         attack_taken: true,
+        stats: {
+          spells: {
+            [sp]: this.actor.data.data.stats.spells?.[sp] ? this.actor.data.data.stats.spells[sp] + 1 : 1,
+          }
+        }
       }
     });
   }
