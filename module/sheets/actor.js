@@ -56,7 +56,7 @@ export default class hqActorSheet extends ActorSheet {
       'data.tmp_move': 0,
       'data.move_rolled': true,
       'data.cur_move': r._total,
-      'data.stats.squares_moved': this.actor.data.data.stats.squares_moved + data
+      'data.stats.squares_moved': this.actor.data.data.stats.squares_moved + r._total,
     });
     r.toMessage({
       flavor: `Movement`
