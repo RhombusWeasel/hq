@@ -169,6 +169,8 @@
                     "gold_found": 0,
                     "search_traps": 0,
                     "search_treasure": 0,
+                    "potions_drank": 0,
+                    "spells_cast": 0,
                     "kills": {},
                     "potions": {},
                     "spells": {}
