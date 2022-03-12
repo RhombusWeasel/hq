@@ -36,6 +36,7 @@ export default class hqActorSheet extends ActorSheet {
     html.find(".search-treasure").click(this._on_search_treasure.bind(this));
 
     html.find(".class-select").change(this._on_class_select.bind(this));
+    return super.activateListeners(html);
   }
 
   _on_roll_turn(ev) {
