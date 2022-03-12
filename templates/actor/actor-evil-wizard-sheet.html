@@ -11,17 +11,17 @@
         <h2 class="center">Heros</h2>
         <table>
             <tr>
-                <th class="center perc70">Name</th>
+                <th class="center perc40">Name</th>
                 <th class="center perc5"><i class="fas fa-dice"></i></th>
-                <th class="center perc5"><i class="fas fa-solid fa-person-walking"></i></th>
+                <th class="center perc5"><i class="fas fa-person-hiking"></i></th>
                 <th class="center perc10"><i class="fas fa-heart"></i></th>
-                <th class="center perc5"><i class="fas fa-sword"></i></th>
-                <th class="center perc5"><i class="fas fa-shield-blank"></i></th>
+                <th class="center perc5"><i class="fas fa-skull"></i></th>
+                <th class="center perc5"><i class="fas fa-shield"></i></th>
                 <th class="center perc5"><i class="fas fa-brain"></i></th>
             </tr>
         {{#each heros as |hero|}}
             <tr>
-                <td class="center perc70">{{hero.name}}</td>
+                <td class="center perc40">{{hero.name}}</td>
                 <td class="center perc5">{{hero.data.data.initiative}}</td>
                 <td class="center perc5">{{hero.data.data.cur_move}}</td>
                 <td class="center perc10">{{hero.data.data.body.value}}/{{hero.data.data.body.max}}</td>
