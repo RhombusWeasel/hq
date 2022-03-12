@@ -22,7 +22,7 @@ export default class hqGMSheet extends ActorSheet {
     data.heros = hq.gm.get_online_actors().sort((a, b) => {return hq.sort.compare(a, b, 'initiative')});
     data.monsters = hq.monsters;
     data.treasures = game.hq.treasure_deck.length - 9;
-    data.treasure_max = hq.treasure.length;
+    data.treasure_max = game.hq.treasure_deck.length;
     return data;
   }
 
