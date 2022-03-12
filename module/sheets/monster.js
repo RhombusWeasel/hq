@@ -1,4 +1,4 @@
-export default class hqActorSheet extends ActorSheet {
+export default class hqMonsterSheet extends ActorSheet {
 
     /** @override */
     static get defaultOptions() {
@@ -25,7 +25,7 @@ export default class hqActorSheet extends ActorSheet {
     activateListeners(html) {
         //Buttons (On Click)
         html.find(".set-class").click(this._on_set_class.bind(this));
-        
+
         //Selectors (On Change)
         html.find(".class-select").change(this._on_class_select.bind(this));
         return super.activateListeners(html);
