@@ -113,6 +113,21 @@ Hooks.on("ready", () => {
     };
 });
 
+function get_token_count(t) {
+    let count = 0;
+    let tokens = canvas.tokens.placeables;
+    if (tokens) {
+        tokens.forEach(tkn => {
+            console.log(tkn.name, t.name);
+            if (tkn.name.search(t.name) != -1) {
+                console.log('Match!', tkn.name.search(t.name));
+                count += 1;
+            }
+        });
+    }
+    return count;
+}
+
 Hooks.on('preCreateToken', function (document, createData, options, userId) {
     console.log('W00T', document, createData);
     let act = game.actors.getName(document.name);
