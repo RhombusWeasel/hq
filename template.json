@@ -159,8 +159,10 @@
                     }
                 },
                 "stats": {
+                    "turns_taken": 0,
                     "squares_moved": 0,
                     "attacks_made": 0,
+                    "times_defended": 0,
                     "total_hits": 0,
                     "total_kills": 0,
                     "damage_taken": 0,
