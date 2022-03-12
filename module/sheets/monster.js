@@ -23,6 +23,17 @@ export default class hqActorSheet extends ActorSheet {
     }
   
     activateListeners(html) {
+        //Buttons (On Click)
+
+        //Selectors (On Change)
+        html.find(".class-select").change(this._on_class_select.bind(this));
         return super.activateListeners(html);
     }
+
+    _on_class_select(ev) {
+        ev.preventDefault();
+        let el = ev.currentTarget;
+        let v = parseInt(el.value);
+        hq.set_class(this.actor, 'classes', v);
+      }
 }
