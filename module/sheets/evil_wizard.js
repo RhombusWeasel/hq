@@ -20,6 +20,7 @@ export default class hqGMSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.heros = hq.gm.get_online_actors().sort((a, b) => {return hq.sort.compare(a, b, 'initiative')});
+    data.monsters = hq.monsters;
     data.treasures = game.hq.treasure_deck.length - 9;
     data.treasure_max = hq.treasure.length;
     return data;
@@ -30,6 +31,8 @@ export default class hqGMSheet extends ActorSheet {
     html.find(".reset-treasure").click(this._on_reset_treasure.bind(this));
     html.find(".next-turn").click(this._on_next_turn.bind(this));
     html.find(".next-round").click(this._on_next_round.bind(this));
+
+    html.find(".target-player").click(this._on_target_player.bind(this));
     
     //html.find(".class-select").change(this._on_class_select.bind(this));
     return super.activateListeners(html);
@@ -63,6 +66,43 @@ export default class hqGMSheet extends ActorSheet {
 
   _on_next_round(ev) {
     hq.socket.emit('next_round');
+  }
+
+  _on_target_player(event) {
+    event.preventDefault();
+    let el = event.currentTarget;
+    let tk = hq.get_token(el.dataset.name);
+    tk.setTarget({releaseOthers: true});
+  }
+
+  _on_roll_attack(ev) {
+    ev.preventDefault();
+    let el = ev.currentTarget;
+    let tgt = hq.hero.get_target()
+    if (tgt == false) {
+      hq.chat.send('No Target', 'You must select a target to attack');
+      return;
+    }
+    let mob = hq.monsters[el.dataset.index]
+    let attack_dice = mob.atk;
+    let result = game.specialDiceRoller.heroQuest.rollFormula(`${attack_dice}h`, `${mob.name} attacks!`);
+    let hits = result.match(/heroskull\.png/g) || [];
+    result = `${result.split('<hr>')[0]}`;
+    if(hits.length > 0) {
+      result += `
+        <p>${mob.name} lands ${hq.pluralize(hits.length, 'hit', 'hits')}</p>
+      `;
+      hq.socket.emit('attack_roll', {
+        attacker: mob.name,
+        hits:     hits.length,
+        target:   tgt.name,
+      });
+    }else{
+      result += `
+        <p>${this.actor.name} missed.</p>
+      `;
+    }
+    ChatMessage.create({content: result});
   }
 
 }
