@@ -1,5 +1,6 @@
 import item_sheet from "./sheets/item.js";
 import actor_sheet from "./sheets/actor.js"
+import mob_sheet from "./sheets/monster.js"
 import evil_sheet from "./sheets/evil_wizard.js"
 
 async function preload_handlebars_templates() {
@@ -15,6 +16,7 @@ Hooks.once("init", function () {
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("hq", actor_sheet, {makeDefault: true});
+    Actors.registerSheet("hq", mob_sheet, {makeDefault: true});
     Actors.registerSheet("hq", evil_sheet, {makeDefault: false});
 
     Handlebars.registerHelper('isGM', function (options) {
