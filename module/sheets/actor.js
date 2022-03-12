@@ -46,6 +46,7 @@ export default class hqActorSheet extends ActorSheet {
     r.toMessage({
       flavor: `Initiative`
     });
+    hq.socket.emit('refresh', {});
   }
 
   _on_roll_move(ev) {
@@ -56,6 +57,10 @@ export default class hqActorSheet extends ActorSheet {
       'data.move_rolled': true,
       'data.cur_move': r._total,
     });
+    r.toMessage({
+      flavor: `Movement`
+    });
+    hq.socket.emit('refresh', {});
   }
 
   _on_roll_attack(ev) {
@@ -122,6 +127,7 @@ export default class hqActorSheet extends ActorSheet {
     }else{
       hq.dialog.prompt(`I can't let you do that Dave.`, `You have no ${this.actor.data.data.potions[po].name}`);
     }
+    hq.socket.emit('refresh', {});
   }
 
   _on_spell_toggle(ev) {
@@ -161,4 +167,4 @@ export default class hqActorSheet extends ActorSheet {
       });
     }
   }
-}  
+}
