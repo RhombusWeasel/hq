@@ -20,6 +20,8 @@ export default class hqGMSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.heros = hq.gm.get_online_actors().sort((a, b) => {return hq.sort.compare(a, b, 'initiative')});
+    data.treasures = game.hq.treasure_deck.length - 9;
+    data.treasure_max = hq.treasure.length;
     return data;
   }
 
