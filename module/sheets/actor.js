@@ -72,6 +72,11 @@ export default class hqActorSheet extends ActorSheet {
       result += `
         <p>${this.actor.name} lands ${hq.pluralize(hits.length, 'hit', 'hits')}</p>
       `;
+      hq.socket.emit('attack_roll', {
+        attacker: this.actor.name,
+        hits:     hits.length,
+        target:   tgt.name,
+      });
     }else{
       result += `
         <p>${this.actor.name} missed.</p>
@@ -81,7 +86,6 @@ export default class hqActorSheet extends ActorSheet {
       'data.tmp_atk': 0,
       'data.atk_count': this.actor.data.data.atk_count - 1,
       'data.attack_taken': true,
-      'data.atk_count': this.actor.data.data.atk_count - 1,
     });
     ChatMessage.create({content: result});
   }
