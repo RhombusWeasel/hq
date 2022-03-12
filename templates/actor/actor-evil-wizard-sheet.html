@@ -8,7 +8,10 @@
         {{#each heros as |hero|}}
             <tr>
                 <td>{{hero.name}}</td>
+                <td>{{hero.data.data.initiative}}</td>
                 <td>{{hero.data.data.body.value}}/{{hero.data.data.body.max}}</td>
+                <td>{{sum hero.data.data.atk '+' (sum hero.data.data.tmp_atk '+' hero.data.data.spell_bonus_atk)}}</td>
+                <td>{{sum data.data.def '+' (sum data.data.tmp_def '+' data.data.spell_bonus_def)}}</td>
             </tr>
         {{/each}}
         </table>

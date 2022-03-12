@@ -38,11 +38,11 @@
                     </tr>
                     <tr class="center">
                         <th>Attack</th>
-                        <td>{{data.data.atk}}</td>
+                        <td>{{sum data.data.atk '+' (sum data.data.tmp_atk '+' data.data.spell_bonus_atk)}}</td>
                     </tr>
                     <tr class="center">
                         <th>Defence</th>
-                        <td>{{data.data.def}}</td>
+                        <td>{{sum data.data.def '+' (sum data.data.tmp_def '+' data.data.spell_bonus_def)}}</td>
                     </tr>
                     <tr class="center">
                         <th>Mind</th>
