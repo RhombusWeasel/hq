@@ -81,6 +81,7 @@ export default class hqActorSheet extends ActorSheet {
       'data.tmp_atk': 0,
       'data.atk_count': this.actor.data.data.atk_count - 1,
       'data.attack_taken': true,
+      'data.atk_count': this.actor.data.data.atk_count - 1,
     });
     ChatMessage.create({content: result});
   }
@@ -93,12 +94,14 @@ export default class hqActorSheet extends ActorSheet {
     );
     this.actor.update({
       'data.attack_taken': true,
+      'data.atk_count': this.actor.data.data.atk_count - 1,
     });
   }
 
   _on_search_treasure(ev) {
     this.actor.update({
       'data.attack_taken': true,
+      'data.atk_count': this.actor.data.data.atk_count - 1,
     });
     hq.chat.send(`Let looting commence!`, `${this.actor.name} searches for treasure.`);
     hq.socket.emit('draw_treasure', {name: this.actor.name});

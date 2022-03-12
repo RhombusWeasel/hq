@@ -1,17 +1,24 @@
 <form>
     <div class="flexrow">
         <button class="new-game">New Dungeon</button>
+        <button class="reset-treasure">Reset Treasure</button>
+    </div>
+    <div class="flexrow">
+        <button class="next-turn">Next Turn</button>
+        <button class="reset-treasure">Reset Treasure</button>
     </div>
     <div>
         <h2>Heros</h2>
         <table>
         {{#each heros as |hero|}}
             <tr>
-                <td>{{hero.name}}</td>
-                <td>{{hero.data.data.initiative}}</td>
-                <td>{{hero.data.data.body.value}}/{{hero.data.data.body.max}}</td>
-                <td>{{sum hero.data.data.atk '+' (sum hero.data.data.tmp_atk '+' hero.data.data.spell_bonus_atk)}}</td>
-                <td>{{sum data.data.def '+' (sum data.data.tmp_def '+' data.data.spell_bonus_def)}}</td>
+                <td class="perc70">{{hero.name}}</td>
+                <td class="perc5">{{hero.data.data.initiative}}</td>
+                <td class="perc5">{{hero.data.data.move}}</td>
+                <td class="perc5">{{hero.data.data.body.value}}/{{hero.data.data.body.max}}</td>
+                <td class="perc5">{{sum hero.data.data.atk '+' (sum hero.data.data.tmp_atk '+' hero.data.data.spell_bonus_atk)}}</td>
+                <td class="perc5">{{sum data.data.def '+' (sum data.data.tmp_def '+' data.data.spell_bonus_def)}}</td>
+                <td class="perc5">{{hero.data.data.mind}}</td>
             </tr>
         {{/each}}
         </table>
