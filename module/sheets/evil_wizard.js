@@ -27,12 +27,15 @@ export default class hqGMSheet extends ActorSheet {
   }
 
   activateListeners(html) {
+    //Game
     html.find(".new-game").click(this._on_new_game.bind(this));
     html.find(".reset-treasure").click(this._on_reset_treasure.bind(this));
     html.find(".next-turn").click(this._on_next_turn.bind(this));
     html.find(".next-round").click(this._on_next_round.bind(this));
-
+    //Heros
     html.find(".target-player").click(this._on_target_player.bind(this));
+    //Monsters
+    html.find(".attack-roll").click(this._on_roll_attack.bind(this));
     
     //html.find(".class-select").change(this._on_class_select.bind(this));
     return super.activateListeners(html);
