@@ -38,6 +38,7 @@ export default class hqGMSheet extends ActorSheet {
     game.hq.treasure_deck = hq.deck.shuffle(hq.deck.new('treasure'));
     hq.journal.save('treasure_deck', game.hq.treasure_deck);
     hq.socket.emit('new_game', {});
+    this.render(true);
   }
 
   _on_reset_treasure(ev) {
