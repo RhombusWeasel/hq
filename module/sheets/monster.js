@@ -34,6 +34,6 @@ export default class hqActorSheet extends ActorSheet {
         ev.preventDefault();
         let el = ev.currentTarget;
         let v = parseInt(el.value);
-        hq.set_class(this.actor, 'classes', v);
+        hq.set_class(this.actor, 'monsters', v);
       }
 }
