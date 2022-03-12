@@ -5,20 +5,29 @@
     </div>
     <div class="flexrow">
         <button class="next-turn">Next Turn</button>
-        <button class="reset-treasure">Reset Treasure</button>
+        <button class="next-round">Next Round</button>
     </div>
     <div>
-        <h2>Heros</h2>
+        <h2 class="center">Heros</h2>
         <table>
+            <tr>
+                <th class="center perc70">Name</th>
+                <th class="center perc5"><i class="fas fa-dice"></i></th>
+                <th class="center perc5"><i class="fas fa-person-walking"></i></th>
+                <th class="center perc10"><i class="fas fa-heart"></i></th>
+                <th class="center perc5"><i class="fas fa-sword"></i></th>
+                <th class="center perc5"><i class="fas fa-shield-blank"></i></th>
+                <th class="center perc5"><i class="fas fa-brain"></i></th>
+            </tr>
         {{#each heros as |hero|}}
             <tr>
-                <td class="perc70">{{hero.name}}</td>
-                <td class="perc5">{{hero.data.data.initiative}}</td>
-                <td class="perc5">{{hero.data.data.move}}</td>
-                <td class="perc5">{{hero.data.data.body.value}}/{{hero.data.data.body.max}}</td>
-                <td class="perc5">{{sum hero.data.data.atk '+' (sum hero.data.data.tmp_atk '+' hero.data.data.spell_bonus_atk)}}</td>
-                <td class="perc5">{{sum data.data.def '+' (sum data.data.tmp_def '+' data.data.spell_bonus_def)}}</td>
-                <td class="perc5">{{hero.data.data.mind}}</td>
+                <td class="center perc70">{{hero.name}}</td>
+                <td class="center perc5">{{hero.data.data.initiative}}</td>
+                <td class="center perc5">{{hero.data.data.move}}</td>
+                <td class="center perc10">{{hero.data.data.body.value}}/{{hero.data.data.body.max}}</td>
+                <td class="center perc5">{{sum hero.data.data.atk '+' (sum hero.data.data.tmp_atk '+' hero.data.data.spell_bonus_atk)}}</td>
+                <td class="center perc5">{{sum data.data.def '+' (sum data.data.tmp_def '+' data.data.spell_bonus_def)}}</td>
+                <td class="center perc5">{{hero.data.data.mind}}</td>
             </tr>
         {{/each}}
         </table>
