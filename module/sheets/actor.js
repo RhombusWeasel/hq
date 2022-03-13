@@ -65,37 +65,8 @@ export default class hqActorSheet extends ActorSheet {
   }
 
   _on_roll_attack(ev) {
-    let tgt = hq.hero.get_target()
-    if (tgt == false) {
-      hq.chat.send('No Target', 'You must select a target to attack');
-      return;
-    }
     let attack_dice = this.actor.data.data.atk + this.actor.data.data.tmp_atk + this.actor.data.data.spell_bonus_atk
-    let result = game.specialDiceRoller.heroQuest.rollFormula(`${attack_dice}h`, `${this.actor.name} attacks!`);
-    let hits = result.match(/heroskull\.png/g) || [];
-    result = `${result.split('<hr>')[0]}`;
-    if(hits.length > 0) {
-      result += `
-        <p>${this.actor.name} lands ${hq.pluralize(hits.length, 'hit', 'hits')}</p>
-      `;
-      hq.socket.emit('attack_roll', {
-        attacker: this.actor.name,
-        hits:     hits.length,
-        target:   tgt.name,
-      });
-    }else{
-      result += `
-        <p>${this.actor.name} missed.</p>
-      `;
-    }
-    this.actor.update({
-      'data.tmp_atk': 0,
-      'data.atk_count': this.actor.data.data.atk_count - 1,
-      'data.attack_taken': true,
-      'data.stats.attacks_made': this.actor.data.data.stats.attacks_made + 1,
-      'data.stats.total_hits': this.actor.data.data.stats.total_hits + hits.length,
-    });
-    ChatMessage.create({content: result});
+    hq.hero.roll_atk(this.actor, attack_dice);
   }
 
   _on_search_traps(ev) {
@@ -160,7 +131,8 @@ export default class hqActorSheet extends ActorSheet {
     let el = ev.currentTarget;
     let sp = el.dataset.spell;
     let spell_data = this.actor.data.data.spells[sp]
-    hq.chat.send(`${spell_data.element} Spell`, `${this.actor.name} casts ${spell_data.name}!`, spell_data.description);
+    hq.spells[sp](this.actor);
+    //hq.chat.send(`${spell_data.element} Spell`, `${this.actor.name} casts ${spell_data.name}!`, spell_data.description);
     this.actor.update({
       data: {
         spells: {[sp]: {cast: true}},
