@@ -131,8 +131,6 @@ export default class hqActorSheet extends ActorSheet {
     let el = ev.currentTarget;
     let sp = el.dataset.spell;
     let spell_data = this.actor.data.data.spells[sp]
-    hq.spells[sp](this.actor);
-    //hq.chat.send(`${spell_data.element} Spell`, `${this.actor.name} casts ${spell_data.name}!`, spell_data.description);
     this.actor.update({
       data: {
         spells: {[sp]: {cast: true}},
@@ -145,6 +143,8 @@ export default class hqActorSheet extends ActorSheet {
         }
       }
     });
+    hq.spells[sp](this.actor);
+    //hq.chat.send(`${spell_data.element} Spell`, `${this.actor.name} casts ${spell_data.name}!`, spell_data.description);
   }
 
   _on_class_select(ev) {
