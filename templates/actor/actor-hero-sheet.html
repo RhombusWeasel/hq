@@ -162,19 +162,21 @@
                     <th>Cast</th>
                 </tr>
                 {{#each data.data.spells as |spell|}}
-                    {{#has_spells spell.key}}
-                        {{#if (eq spell.cast false)}}
+                    {{#if (eq ../data.data.my_turn)}}
+                        {{#has_spells spell.key}}
+                            {{#if (eq spell.cast false)}}
                 <tr class="center" title="{{spell.description}}">
                     <td>{{spell.name}}</td>
                     <td>{{spell.element}}</td>
-                            {{#if (gt ../data.data.atk_count 0)}}
+                                {{#if (gt ../data.data.atk_count 0)}}
                     <td class="cast-spell" data-spell="{{@key}}"><a><i class="fas fa-bahai"></i></a></td>
-                            {{else}}
+                                {{else}}
                     <td><a><i class="fas fa-times"></i></a></td>
-                            {{/if}}
+                                {{/if}}
                 </tr>
-                        {{/if}}
-                    {{/has_spells}}
+                            {{/if}}
+                        {{/has_spells}}
+                    {{/if}}
                 {{/each}}
             </table>
         </div>
