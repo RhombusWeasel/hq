@@ -93,7 +93,7 @@ export default class hqGMSheet extends ActorSheet {
         'data.spell_bonus_atk': act.data.data.spell_bonus_atk == 0 ? 2 : 0
       });
     }
-    this.render(true);
+    this.actor.sheet.render(true);
   }
 
   _on_roll_attack(ev) {
