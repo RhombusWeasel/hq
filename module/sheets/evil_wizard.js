@@ -88,6 +88,10 @@ export default class hqGMSheet extends ActorSheet {
       act.update({
         'data.spell_bonus_def': act.data.data.spell_bonus_def == 0 ? 2 : 0
       });
+    }else{
+      act.update({
+        'data.spell_bonus_atk': act.data.data.spell_bonus_atk == 0 ? 2 : 0
+      });
     }
   }
 
