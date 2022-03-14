@@ -34,6 +34,7 @@ export default class hqGMSheet extends ActorSheet {
     html.find(".next-round").click(this._on_next_round.bind(this));
     //Heros
     html.find(".target-player").click(this._on_target_player.bind(this));
+    html.find(".effect-toggle").click(this._on_effect_toggle.bind(this));
     //Monsters
     html.find(".attack-roll").click(this._on_roll_attack.bind(this));
     
@@ -71,11 +72,22 @@ export default class hqGMSheet extends ActorSheet {
     hq.socket.emit('next_round');
   }
 
-  _on_target_player(event) {
-    event.preventDefault();
-    let el = event.currentTarget;
+  _on_target_player(ev) {
+    ev.preventDefault();
+    let el = ev.currentTarget;
     let tk = hq.get_token(el.dataset.name);
     tk.setTarget({releaseOthers: true});
+  }
+
+  _on_effect_toggle(ev) {
+    ev.preventDefault();
+    let el = ev.currentTarget;
+    let act = hq.get_actor(el.dataset.name);
+    if (el.dataset.effect == 'stone') {
+      act.update({
+        'data.spell_bonus_def': act.data.data.spell_bonus_def == 0 ? 2 : 0
+      });
+    }
   }
 
   _on_roll_attack(ev) {

@@ -36,14 +36,14 @@
                 <td class="center perc5">{{sum data.data.def '+' (sum data.data.tmp_def '+' data.data.spell_bonus_def)}}</td>
                 <td class="center perc5">{{hero.data.data.mind}}</td>
                 {{#if (eq hero.data.data.spell_bonus_def 2)}}
-                <td class="perc5 center" data-name="{{hero.name}}"><a class="stone-toggle"><i class="fas fa-check"></i></a></td>
+                <td class="perc5 center" data-name="{{hero.name}}" data-effect="stone"><a class="effect-toggle"><i class="fas fa-check"></i></a></td>
                 {{else}}
-                <td class="perc5 center" data-name="{{hero.name}}"><a class="stone-toggle"><i class="fas fa-times"></i></a></td>
+                <td class="perc5 center" data-name="{{hero.name}}" data-effect="stone"><a class="effect-toggle"><i class="fas fa-times"></i></a></td>
                 {{/if}}
                 {{#if (eq hero.data.data.spell_bonus_atk 2)}}
-                <td class="perc5 center" data-name="{{hero.name}}"><a class="courage-toggle"><i class="fas fa-check"></i></a></td>
+                <td class="perc5 center" data-name="{{hero.name}}" data-effect="courage"><a class="effect-toggle"><i class="fas fa-check"></i></a></td>
                 {{else}}
-                <td class="perc5 center" data-name="{{hero.name}}"><a class="courage-toggle"><i class="fas fa-times"></i></a></td>
+                <td class="perc5 center" data-name="{{hero.name}}" data-effect="courage"><a class="effect-toggle"><i class="fas fa-times"></i></a></td>
                 {{/if}}
             </tr>
         {{/each}}
