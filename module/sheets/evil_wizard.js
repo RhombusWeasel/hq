@@ -84,16 +84,12 @@ export default class hqGMSheet extends ActorSheet {
     let el = ev.currentTarget;
     console.log(el.dataset.name, el.dataset.effect);
     let act = hq.get_actor(el.dataset.name);
-    if (el.dataset.effect == 'stone') {
-      act.update({
-        'data.spell_bonus_def': act.data.data.spell_bonus_def == 0 ? 2 : 0
-      });
-    }else{
-      act.update({
-        'data.spell_bonus_atk': act.data.data.spell_bonus_atk == 0 ? 2 : 0
-      });
-    }
-    this.actor.update();
+    act.update({
+      data: {
+        [el.dataset.effect]: act.data.data[el.dataset.effect] == 0 ? 2 : 0
+      }
+    });
+    this.getData();
   }
 
   _on_roll_attack(ev) {
