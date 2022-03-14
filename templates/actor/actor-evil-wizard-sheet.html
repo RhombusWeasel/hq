@@ -14,14 +14,16 @@
         <h2 class="center">Heros</h2>
         <table>
             <tr>
-                <td class="center perc5"><i class="fas fa-crosshairs"></i></td>
-                <th class="center perc40">Name</th>
-                <th class="center perc5"><i class="fas fa-dice"></i></th>
-                <th class="center perc5"><i class="fas fa-person-hiking"></i></th>
-                <th class="center perc10"><i class="fas fa-heart"></i></th>
-                <th class="center perc5"><i class="fas fa-skull"></i></th>
-                <th class="center perc5"><i class="fas fa-shield-blank"></i></th>
-                <th class="center perc5"><i class="fas fa-brain"></i></th>
+                <th class="center perc5" title="Target Hero"></th>
+                <th class="center perc40" title="Hero Name">Name</th>
+                <th class="center perc5" title="Initiative Roll">I</th>
+                <th class="center perc5" title="Move Rolled">M</th>
+                <th class="center perc10" title="Body">B</th>
+                <th class="center perc5" title="Attack">A</th>
+                <th class="center perc5" title="Defence">D</th>
+                <th class="center perc5" title="Mind">M</th>
+                <th class="center perc5" title="Stone Skin">S</th>
+                <th class="center perc5" title="Courage">C</th>
             </tr>
         {{#each heros as |hero|}}
             <tr>
@@ -33,6 +35,16 @@
                 <td class="center perc5">{{sum hero.data.data.atk '+' (sum hero.data.data.tmp_atk '+' hero.data.data.spell_bonus_atk)}}</td>
                 <td class="center perc5">{{sum data.data.def '+' (sum data.data.tmp_def '+' data.data.spell_bonus_def)}}</td>
                 <td class="center perc5">{{hero.data.data.mind}}</td>
+                {{#if (eq hero.data.data.spell_bonus_def 2)}}
+                <td class="perc5 center" data-name="{{hero.name}}"><a class="stone-toggle"><i class="fas fa-check"></i></a></td>
+                {{else}}
+                <td class="perc5 center" data-name="{{hero.name}}"><a class="stone-toggle"><i class="fas fa-times"></i></a></td>
+                {{/if}}
+                {{#if (eq hero.data.data.spell_bonus_atk 2)}}
+                <td class="perc5 center" data-name="{{hero.name}}"><a class="courage-toggle"><i class="fas fa-check"></i></a></td>
+                {{else}}
+                <td class="perc5 center" data-name="{{hero.name}}"><a class="courage-toggle"><i class="fas fa-times"></i></a></td>
+                {{/if}}
             </tr>
         {{/each}}
         </table>
