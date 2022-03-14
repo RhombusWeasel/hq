@@ -67,6 +67,7 @@ export default class hqActorSheet extends ActorSheet {
   _on_roll_attack(ev) {
     let attack_dice = this.actor.data.data.atk + this.actor.data.data.tmp_atk + this.actor.data.data.spell_bonus_atk
     hq.hero.roll_atk(this.actor, attack_dice);
+    hq.socket.emit('refresh', {});
   }
 
   _on_search_traps(ev) {
@@ -80,6 +81,7 @@ export default class hqActorSheet extends ActorSheet {
       'data.atk_count': this.actor.data.data.atk_count - 1,
       'data.stats.search_traps': this.actor.data.data.stats.search_traps + 1,
     });
+    hq.socket.emit('refresh', {});
   }
 
   _on_search_treasure(ev) {
@@ -90,6 +92,7 @@ export default class hqActorSheet extends ActorSheet {
     });
     hq.chat.send(`Let looting commence!`, `${this.actor.name} searches for treasure.`);
     hq.socket.emit('draw_treasure', {name: this.actor.name});
+    hq.socket.emit('refresh', {});
   }
 
   _on_potion_use(ev) {
@@ -144,7 +147,8 @@ export default class hqActorSheet extends ActorSheet {
       }
     });
     hq.spells[sp](this.actor);
-    //hq.chat.send(`${spell_data.element} Spell`, `${this.actor.name} casts ${spell_data.name}!`, spell_data.description);
+    hq.chat.send(`${spell_data.element} Spell`, `${this.actor.name} casts ${spell_data.name}!`, spell_data.description);
+    hq.socket.emit('refresh', {});
   }
 
   _on_class_select(ev) {
