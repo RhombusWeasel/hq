@@ -82,6 +82,7 @@ export default class hqGMSheet extends ActorSheet {
   _on_effect_toggle(ev) {
     ev.preventDefault();
     let el = ev.currentTarget;
+    console.log(el.dataset.name, el.dataset.effect);
     let act = hq.get_actor(el.dataset.name);
     if (el.dataset.effect == 'stone') {
       act.update({
