@@ -4,8 +4,8 @@ import mob_sheet from "./sheets/monster.js"
 import evil_sheet from "./sheets/evil_wizard.js"
 
 async function preload_handlebars_templates() {
-    const template_paths = []
-    return loadTemplates(template_paths)
+    const template_paths = [];
+    return loadTemplates(template_paths);
 }
 
 Hooks.once("init", function () {

@@ -29,6 +29,8 @@
                 "courage": false,
                 "spell_bonus_atk": 0,
                 "spell_bonus_def": 0,
+                "shield_bonus": 0,
+                "helmet_bonus": 0,
                 "body": {
                     "min": 0,
                     "max": 4,
